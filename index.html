@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Frame | Mragank Gautam - Visual Storytelling Redefined</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web@2.1.1/dist/index.min.js"></script>
+    <style>
+        /* Custom Tailwind Configuration (Inter font) */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+        :root {
+            --color-primary: #FF6B00; /* Warm Accent Orange */
+            --color-dark: #0A0A0A; /* Near-Black Background */
+            --color-light-gray: #444444;
+            --color-border: #1F1F1F; /* Slightly lighter than dark for separation */
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--color-dark);
+            color: #F0F0F0;
+            overflow-x: hidden; /* Prevent horizontal scroll caused by animations */
+        }
+
+        /* --- New: Preloader/Opening Animation Styles --- */
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--color-dark);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 1;
+            transition: opacity 0.8s ease-out, visibility 0.8s ease-out;
+            visibility: visible;
+        }
+
+        #preloader.fade-out {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .preloader-icon {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 3px solid var(--color-primary);
+            border-top-color: transparent;
+            animation: spin 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite, glow-pulse 2s infinite alternate;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        @keyframes glow-pulse {
+            0% { box-shadow: 0 0 10px rgba(255, 107, 0, 0.5); }
+            100% { box-shadow: 0 0 20px rgba(255, 107, 0, 0.8); }
+        }
+        /* --- End Preloader Styles --- */
+
+        /* --- Volumetric Glow Background Styles --- */
+        #volumetric-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        #volumetric-bg::before,
+        #volumetric-bg::after {
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.15;
+            background: var(--color-primary);
+            animation-duration: 40s;
+            animation-iteration-count: infinite;
+            animation-timing-function: ease-in-out;
+            will-change: transform, opacity;
+        }
+
+        @keyframes glow-move-one {
+            0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.15; }
+            33% { transform: translate(30vw, 15vh) scale(1.1); opacity: 0.2; }
+            66% { transform: translate(-10vw, -20vh) scale(0.1); }
+        }
+
+        @keyframes glow-move-two {
+            0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.15; }
+            33% { transform: translate(-20vw, -10vh) scale(1.05); opacity: 0.2; }
+            66% { transform: translate(10vw, 15vh) scale(0.95); opacity: 0.1; }
+        }
+        /* --- End Volumetric Glow Styles --- */
+
+
+        /* Custom Styles for Luxury/Premium Feel */
+        .glass-nav {
+            backdrop-filter: blur(8px);
+            background-color: rgba(10, 10, 10, 0.85);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .glass-card {
+            backdrop-filter: blur(8px);
+            background-color: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .glass-card:hover {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 107, 0, 0.3);
+            transform: translateY(-4px);
+        }
+
+        /* Custom Button Style (Subtle Neumorphic/Glow) */
+        .glow-btn {
+            background-color: var(--color-primary);
+            color: var(--color-dark);
+            box-shadow: 0 4px 15px rgba(255, 107, 0, 0.3);
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .glow-btn:hover {
+            box-shadow: 0 6px 20px rgba(255, 107, 0, 0.5), inset 0 0 10px rgba(255, 107, 0, 0.7);
+            transform: translateY(-2px);
+        }
+
+        /* Heading Style - Tight Letter Spacing */
+        .luxury-heading {
+            letter-spacing: -0.04em;
+        }
+
+        /* Scroll Animation Class (Fade Up and In) */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(20px) blur(5px);
+            transition: opacity 1s ease-out, transform 1s ease-out, filter 1s ease-out;
+            will-change: opacity, transform, filter;
+        }
+
+        .fade-in-up.is-visible {
+            opacity: 1;
+            transform: translateY(0) blur(0);
+        }
+
+        /* Mobile Menu Tray Animation */
+        .menu-tray {
+            transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+            transform: translateX(100%);
+        }
+
+        .menu-tray.is-open {
+            transform: translateX(0);
+        }
+
+        /* Custom Hover Effect for Portfolio */
+        .portfolio-item-container {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+            border-radius: 0.75rem; /* Match card rounding */
+        }
+
+        .portfolio-item-container:hover .portfolio-overlay {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="bg-dark text-white">
+
+    <!-- NEW: Opening Animation Preloader -->
+    <div id="preloader">
+        <div class="preloader-icon"></div>
+    </div>
+
+    <!-- Dynamic Background Layer -->
+    <div id="volumetric-bg">
+        <style>
+            #volumetric-bg::before {
+                top: 5vh;
+                left: -15vw;
+                width: 600px;
+                height: 600px;
+                animation-name: glow-move-one;
+            }
+            #volumetric-bg::after {
+                bottom: 10vh;
+                right: -20vw;
+                width: 700px;
+                height: 700px;
+                animation-name: glow-move-two;
+                animation-delay: -20s;
+            }
+        </style>
+    </div>
+
+    <!-- Mobile Menu Tray -->
+    <div id="mobile-menu" class="menu-tray fixed top-0 right-0 w-full h-full bg-[#0A0A0A] z-50 p-8">
+        <button id="close-menu" class="absolute top-6 right-6 text-3xl text-gray-400 hover:text-white transition-colors">
+            <ph-icon name="x" weight="light" class="w-8 h-8"></ph-icon>
+        </button>
+        <div class="flex flex-col space-y-8 mt-24">
+            <a href="#home" class="text-4xl font-black text-gray-200 hover:text-primary transition-colors" onclick="toggleMenu()">Home</a>
+            <a href="#about" class="text-4xl font-black text-gray-200 hover:text-primary transition-colors" onclick="toggleMenu()">About</a>
+            <a href="#services-highlight" class="text-4xl font-black text-gray-200 hover:text-primary transition-colors" onclick="toggleMenu()">Services</a>
+            <a href="#portfolio" class="text-4xl font-black text-gray-200 hover:text-primary transition-colors" onclick="toggleMenu()">Portfolio</a>
+            <a href="#contact" class="text-4xl font-black text-gray-200 hover:text-primary transition-colors" onclick="toggleMenu()">Contact</a>
+        </div>
+    </div>
+
+    <!-- Sticky Navigation (Desktop & Tablet) -->
+    <header id="main-nav" class="fixed top-0 left-0 right-0 z-40 glass-nav">
+        <div class="max-w-7xl mx-auto px-6 sm:px-10 py-4 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="#home" class="text-xl font-black luxury-heading text-white">
+                THE FRAME<span class="text-primary">.</span>
+            </a>
+
+            <!-- Desktop Links -->
+            <nav class="hidden md:flex space-x-8 text-sm font-medium">
+                <a href="#about" class="hover:text-primary transition-colors">About</a>
+                <a href="#services-highlight" class="hover:text-primary transition-colors">Services</a>
+                <a href="#portfolio" class="hover:text-primary transition-colors">Portfolio</a>
+                <a href="#contact" class="hover:text-primary transition-colors">Contact</a>
+            </nav>
+
+            <!-- Mobile Burger Menu -->
+            <button id="open-menu" class="md:hidden text-2xl text-white">
+                <ph-icon name="list" weight="light" class="w-7 h-7"></ph-icon>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- 1. Hero Section -->
+        <section id="home" class="min-h-screen pt-40 pb-20 flex flex-col items-center justify-center text-center px-4">
+            <div class="max-w-5xl mx-auto">
+                <h1 class="text-6xl sm:text-8xl font-black luxury-heading text-white fade-in-up">
+                    VISUAL STORYTELLING. REDEFINED.
+                </h1>
+                <!-- UPDATED BIO -->
+                <p class="mt-6 text-xl text-gray-400 font-light max-w-3xl mx-auto fade-in-up" style="transition-delay: 0.2s;">
+                    With 1.5 years of high-end experience, I elevate your podcast content with precision video editing and minimal motion graphics, engineered for maximum engagement. I'm Mragank Gautam.
+                </p>
+                <!-- ADDED: CTA Button in Hero Section -->
+                <a href="#contact" class="glow-btn inline-block mt-10 px-8 py-3 rounded-full text-base uppercase tracking-wider fade-in-up" style="transition-delay: 0.4s;">
+                    Work With Me
+                </a>
+            </div>
+
+            <!-- UPDATED: Hero Reel Placeholder with DaVinci Interface Visual -->
+            <div class="relative w-full max-w-4xl mt-24 glass-card p-4 fade-in-up" style="transition-delay: 0.6s;">
+                <img src="./image.jpeg" 
+                     alt="Professional DaVinci Resolve Timeline"
+                     class="w-full h-auto rounded-lg border border-[#1f1f1f] shadow-lg"
+                     onerror="this.onerror=null;this.src='https://placehold.co/1200x675/1e1e1e/8f8f8f?text=VISUAL+WORKFLOW+ERROR'">
+                
+                <div class="mt-6 text-left">
+                    <h3 class="text-xl font-bold text-white">DaVinci Resolve: The Core of Precision.</h3>
+                    <p class="text-sm text-gray-400 font-light mt-2">
+                        DaVinci Resolve is the industry's most advanced all-in-one non-linear editing system. I use it to manage your entire post-production, from the initial cut and **Fairlight audio mastering** to **high-end color grading and final delivery**, ensuring an efficient, streamlined, and premium workflow that is unmatched by standard editing suites.
+                    </p>
+                </div>
+            </div>
+            <!-- END UPDATED HERO SECTION -->
+        </section>
+
+        <!-- 2. Specializations (Services Highlight) -->
+        <section id="services-highlight" class="py-24 px-4 border-t border-gray-900">
+            <h2 class="text-4xl sm:text-5xl font-black luxury-heading text-center mb-16 fade-in-up">
+                My Focus: <span class="text-primary">Luxury-Grade Visuals.</span>
+            </h2>
+            <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-8">
+
+                <div class="glass-card p-8 rounded-xl fade-in-up">
+                    <ph-icon name="microphone-stage" weight="light" class="w-10 h-10 text-primary mb-4"></ph-icon>
+                    <h3 class="text-2xl font-black luxury-heading mb-3">Podcast Video Mastery</h3>
+                    <p class="text-gray-400 font-light">Seamless editing tailored for long-form dialogue. Focus on clean cuts, dynamic framing, and optimal rhythm to hold attention over extended periods.</p>
+                </div>
+
+                <div class="glass-card p-8 rounded-xl fade-in-up" style="transition-delay: 0.15s;">
+                    <ph-icon name="circuitry" weight="light" class="w-10 h-10 text-primary mb-4"></ph-icon>
+                    <h3 class="text-2xl font-black luxury-heading mb-3">Minimal Motion Graphics</h3>
+                    <p class="text-gray-400 font-light">Subtle, high-impact motion graphics (lower-thirds, title cards, animated statistics) that support, not distract, from the core message.</p>
+                </div>
+
+                <div class="glass-card p-8 rounded-xl fade-in-up" style="transition-delay: 0.3s;">
+                    <ph-icon name="magic-wand" weight="light" class="w-10 h-10 text-primary mb-4"></ph-icon>
+                    <h3 class="text-2xl font-black luxury-heading mb-3">DaVinci Resolve Workflow</h3>
+                    <p class="text-gray-400 font-light">Primary expertise in DaVinci Resolve for full editorial, color grading, and Fairlight audio cleanup—delivering an all-in-one final product.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Work Showcase/Portfolio -->
+        <section id="portfolio" class="py-24 px-4 border-t border-gray-900">
+            <div class="max-w-7xl mx-auto">
+                <h2 class="text-4xl sm:text-5xl font-black luxury-heading mb-16 fade-in-up">
+                    The Result: <span class="text-primary">Visual Evidence of Excellence.</span>
+                </h2>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Portfolio Item 1: Raj Shamani 2 (Previously Control Z) -->
+                    <div class="portfolio-item-container fade-in-up">
+                        <video class="w-full h-full object-cover rounded-xl" autoplay muted loop playsinline src="podcas_edit_video/raj shamani 2.mp4" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <source src="podcas_edit_video/raj shamani 2.mp4" type="video/mp4">
+                        </video>
+                         <div class="portfolio-overlay" style="display: none; background-color: #0A0A0A; opacity: 1;">
+                            <p class="text-lg font-bold">Raj Shamani 2 - Video Error</p>
+                            <p class="text-sm text-gray-400 mt-2">Video file not found or unsupported.</p>
+                        </div>
+                        <div class="portfolio-overlay">
+                            <ph-icon name="video-camera" weight="light" class="w-8 h-8 text-primary mb-2"></ph-icon>
+                            <p class="text-lg font-bold">Raj Shamani Edit 2</p>
+                            <p class="text-sm text-primary mt-2 p-1 rounded-full border border-primary">Podcast Insight</p>
+                        </div>
+                    </div>
+                    <!-- Portfolio Item 2: Raj Shamani Edit 1 (Original) -->
+                    <div class="portfolio-item-container fade-in-up" style="transition-delay: 0.1s;">
+                        <video class="w-full h-full object-cover rounded-xl" autoplay muted loop playsinline src="podcas_edit_video/raj shamani edit.mp4" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <source src="podcas_edit_video/raj shamani edit.mp4" type="video/mp4">
+                        </video>
+                         <div class="portfolio-overlay" style="display: none; background-color: #0A0A0A; opacity: 1;">
+                            <p class="text-lg font-bold">Raj Shamani - Video Error</p>
+                            <p class="text-sm text-gray-400 mt-2">Video file not found or unsupported.</p>
+                        </div>
+                        <div class="portfolio-overlay">
+                            <ph-icon name="video-camera" weight="light" class="w-8 h-8 text-primary mb-2"></ph-icon>
+                            <p class="text-lg font-bold">Raj Shamani Edit 1</p>
+                            <p class="text-sm text-primary mt-2 p-1 rounded-full border border-primary">High-Energy Cut</p>
+                        </div>
+                    </div>
+                    <!-- Portfolio Item 3: Sydney Sweeney -->
+                    <div class="portfolio-item-container fade-in-up" style="transition-delay: 0.2s;">
+                        <video class="w-full h-full object-cover rounded-xl" autoplay muted loop playsinline src="podcas_edit_video/sydney_sweeney.mp4" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <source src="podcas_edit_video/sydney_sweeney.mp4" type="video/mp4">
+                        </video>
+                         <div class="portfolio-overlay" style="display: none; background-color: #0A0A0A; opacity: 1;">
+                            <p class="text-lg font-bold">Sydney Sweeney - Video Error</p>
+                            <p class="text-sm text-gray-400 mt-2">Video file not found or unsupported.</p>
+                        </div>
+                        <div class="portfolio-overlay">
+                            <ph-icon name="video-camera" weight="light" class="w-8 h-8 text-primary mb-2"></ph-icon>
+                            <p class="text-lg font-bold">Sydney Sweeney Edit</p>
+                            <p class="text-sm text-primary mt-2 p-1 rounded-full border border-primary">Clean Cinematic Cut</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center mt-12 fade-in-up" style="transition-delay: 0.4s;">
+                    <a href="#contact" class="glow-btn inline-block px-8 py-3 rounded-full text-base uppercase tracking-wider">
+                        See Full Portfolio
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Testimonials / Philosophy -->
+        <section id="testimonials" class="py-24 px-4 border-t border-gray-900">
+            <div class="max-w-5xl mx-auto">
+                <h2 class="text-4xl sm:text-5xl font-black luxury-heading text-center mb-16 fade-in-up">
+                    The Philosophy of <span class="text-primary">The Frame.</span>
+                </h2>
+
+                <!-- Testimonial Slider Placeholder -->
+                <div class="space-y-12 fade-in-up" style="transition-delay: 0.1s;">
+                    <div class="glass-card p-8 rounded-xl">
+                        <ph-icon name="quotes" weight="light" class="w-10 h-10 text-primary mb-4"></ph-icon>
+                        <p class="text-xl text-gray-300 italic font-light">
+                            "The edit is not done until the color is intentional. Every choice, from the cleanest node structure to the final cinematic grade, must serve the narrative. That's Resolve mastery."
+                        </p>
+                        <p class="mt-4 font-bold text-lg text-white">- Technical Precision</p>
+                        <p class="text-sm font-semibold text-primary mt-1">Focus: Flawless Resolve Execution</p>
+                    </div>
+
+                    <div class="glass-card p-8 rounded-xl">
+                        <ph-icon name="quotes" weight="light" class="w-10 h-10 text-primary mb-4"></ph-icon>
+                        <p class="text-xl text-gray-300 italic font-light">
+                            "Rhythm is the most important element of podcast video. Knowing when to cut, when to hold, and using Fairlight to shape the silence—that’s how you lock in viewer retention."
+                        </p>
+                        <p class="mt-4 font-bold text-lg text-white">- Narrative Rhythm</p>
+                        <p class="text-sm font-semibold text-primary mt-1">Focus: Multicam & Fairlight Audio</p>
+                    </div>
+                </div>
+
+                <div class="text-center mt-8">
+                    <!-- Slider dots placeholder -->
+                    <span class="inline-block w-2 h-2 bg-primary rounded-full mx-1"></span>
+                    <span class="inline-block w-2 h-2 bg-gray-700 rounded-full mx-1"></span>
+                    <span class="inline-block w-2 h-2 bg-gray-700 rounded-full mx-1"></span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Tools & Workflow -->
+        <section id="workflow" class="py-24 px-4 border-t border-gray-900">
+            <div class="max-w-7xl mx-auto">
+                <h2 class="text-4xl sm:text-5xl font-black luxury-heading text-center mb-16 fade-in-up">
+                    Built for <span class="text-primary">Efficiency and Quality.</span>
+                </h2>
+
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Tool Card 1 -->
+                    <div class="glass-card p-6 rounded-xl text-center fade-in-up">
+                        <ph-icon name="video-camera" weight="light" class="w-12 h-12 text-primary mx-auto mb-3"></ph-icon>
+                        <h3 class="text-xl font-bold">DaVinci Resolve</h3>
+                        <p class="text-sm text-gray-400 font-light mt-1">Core editing, advanced color grading, and seamless mastering.</p>
+                    </div>
+                    <!-- Tool Card 2 -->
+                    <div class="glass-card p-6 rounded-xl text-center fade-in-up" style="transition-delay: 0.1s;">
+                        <ph-icon name="speaker-high" weight="light" class="w-12 h-12 text-primary mx-auto mb-3"></ph-icon>
+                        <h3 class="text-xl font-bold">Fairlight Audio</h3>
+                        <p class="text-sm text-gray-400 font-light mt-1">Professional audio cleanup, noise reduction, and mixing for clarity.</p>
+                    </div>
+                    <!-- Tool Card 3 -->
+                    <div class="glass-card p-6 rounded-xl text-center fade-in-up" style="transition-delay: 0.2s;">
+                        <ph-icon name="atom" weight="light" class="w-12 h-12 text-primary mx-auto mb-3"></ph-icon>
+                        <h3 class="text-xl font-bold">Fusion</h3>
+                        <p class="text-sm text-gray-400 font-light mt-1">Custom, minimal motion graphics and visual effects integration.</p>
+                    </div>
+                    <!-- Tool Card 4 -->
+                    <div class="glass-card p-6 rounded-xl text-center fade-in-up" style="transition-delay: 0.3s;">
+                        <ph-icon name="cloud" weight="light" class="w-12 h-12 text-primary mx-auto mb-3"></ph-icon>
+                        <h3 class="text-xl font-bold">Client Portal</h3>
+                        <p class="text-sm text-gray-400 font-light mt-1">Streamlined asset sharing and feedback loops for efficiency.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Mission -->
+        <section id="mission" class="py-24 px-4 border-t border-gray-900">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-4xl sm:text-5xl font-black luxury-heading mb-8 fade-in-up">
+                    My Mission: <span class="text-primary">To Be Your Visual Partner.</span>
+                </h2>
+                <p class="text-xl text-gray-400 font-light leading-relaxed fade-in-up" style="transition-delay: 0.2s;">
+                    I don't just edit videos—I translate your audio authority into a captivating visual experience. With 1.5+ years of dedicated, high-end experience, I focus on maximizing your podcast's on-screen presence, ensuring every viewer sees the quality you put into your content.
+                </p>
+            </div>
+        </section>
+
+        <!-- 7. CTA Section (Contact) -->
+        <section id="contact" class="py-24 px-4 border-y border-primary/20 bg-primary/[0.05]">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-4xl sm:text-5xl font-black luxury-heading mb-6 text-white fade-in-up">
+                    Ready to <span class="text-primary">elevate your podcast visuals</span>?
+                </h2>
+                <p class="text-xl text-gray-400 font-light max-w-2xl mx-auto mb-10 fade-in-up" style="transition-delay: 0.1s;">
+                    Let's connect. Find me on social media or reach out directly via email to discuss your next project.
+                </p>
+
+                <!-- Social Links -->
+                <div class="flex justify-center space-x-6 text-gray-300 mb-10 fade-in-up" style="transition-delay: 0.2s;">
+                    <a href="https://www.linkedin.com/in/mragank-gautam-512895339" target="_blank" class="hover:text-primary transition-colors">
+                        <ph-icon name="linkedin-logo" weight="light" class="w-8 h-8"></ph-icon>
+                    </a>
+                    <a href="https://www.instagram.com/theframee._?igsh=MWsyeTN5aGM4eWtndw==" target="_blank" class="hover:text-primary transition-colors">
+                        <ph-icon name="instagram-logo" weight="light" class="w-8 h-8"></ph-icon>
+                    </a>
+                    <a href="mailto:mragankgau63@gmail.com" class="hover:text-primary transition-colors">
+                        <ph-icon name="envelope-simple" weight="light" class="w-8 h-8"></ph-icon>
+                    </a>
+                </div>
+                
+                <!-- Action Buttons -->
+                <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6 fade-in-up" style="transition-delay: 0.3s;">
+                    <a href="mailto:mragankgau63@gmail.com" class="glow-btn inline-block px-10 py-3 rounded-full text-lg uppercase tracking-wider">
+                        Email Me Now
+                    </a>
+                    <a href="https://www.linkedin.com/in/mragank-gautam-512895339" target="_blank" class="glow-btn inline-block px-10 py-3 rounded-full text-lg uppercase tracking-wider bg-gray-700 hover:bg-gray-600 text-white" style="box-shadow: none;">
+                        Connect on LinkedIn
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-10 px-4 text-center border-t border-gray-900">
+        <p class="text-xs text-gray-600 font-light">
+            © 2025 The Frame. Visual Storytelling by Mragank Gautam. All Rights Reserved.
+        </p>
+        <div class="flex justify-center space-x-4 mt-3">
+            <a href="https://www.linkedin.com/in/mragank-gautam-512895339" target="_blank" class="text-gray-500 hover:text-primary transition-colors">
+                <ph-icon name="linkedin-logo" weight="light" class="w-5 h-5"></ph-icon>
+            </a>
+            <a href="https://www.instagram.com/theframee._?igsh=MWsyeTN5aGM4eWtndw==" target="_blank" class="text-gray-500 hover:text-primary transition-colors">
+                <ph-icon name="instagram-logo" weight="light" class="w-5 h-5"></ph-icon>
+            </a>
+            <a href="mailto:mragankgau63@gmail.com" class="text-gray-500 hover:text-primary transition-colors">
+                <ph-icon name="envelope-simple" weight="light" class="w-5 h-5"></ph-icon>
+            </a>
+        </div>
+    </footer>
+
+
+    <script>
+        // --- Setup for Mobile Menu and Scroll Animations ---
+
+        const mobileMenu = document.getElementById('mobile-menu');
+        const openMenuBtn = document.getElementById('open-menu');
+        const closeMenuBtn = document.getElementById('close-menu');
+        const preloader = document.getElementById('preloader');
+
+        // Function to toggle mobile menu visibility
+        function toggleMenu() {
+            mobileMenu.classList.toggle('is-open');
+        }
+
+        openMenuBtn.addEventListener('click', toggleMenu);
+        closeMenuBtn.addEventListener('click', toggleMenu);
+
+        // --- Intersection Observer for Scroll Animations (Fade In Up) ---
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1 // Trigger when 10% of the element is visible
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    // Stop observing once visible to prevent re-triggering
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Target all elements with the animation class
+        document.querySelectorAll('.fade-in-up').forEach(el => {
+            observer.observe(el);
+        });
+
+        // --- Opening Animation (Preloader Fade Out) ---
+        window.addEventListener('load', () => {
+            // Ensure the background animation is set up
+            const volumetricBg = document.getElementById('volumetric-bg');
+            if (volumetricBg) {
+                // Set the initial glow positions (hidden in CSS for animation)
+                volumetricBg.querySelector('style').textContent += `
+                    #volumetric-bg::before { animation-name: glow-move-one; }
+                    #volumetric-bg::after { animation-name: glow-move-two; animation-delay: -20s; }
+                `;
+            }
+
+            // Start fade out after a short delay (for visual effect)
+            setTimeout(() => {
+                preloader.classList.add('fade-out');
+            }, 500); // 0.5 second delay before fading out
+
+            // Remove preloader from DOM after transition finishes
+            setTimeout(() => {
+                preloader.style.display = 'none';
+            }, 1300); // Wait for the 0.8s transition + delay
+        });
+
+        // --- Error Handling for Video Playback ---
+        // This ensures a clear message is shown if the local video file is missing.
+        document.querySelectorAll('.portfolio-item-container video').forEach(video => {
+            video.onerror = function() {
+                // Find the parent container
+                const container = video.closest('.portfolio-item-container');
+                if (container) {
+                    // Hide the video element
+                    video.style.display = 'none';
+
+                    // Find the error overlay placeholder (the one with style="display: none;")
+                    const errorOverlay = container.querySelector('.portfolio-overlay[style*="display: none"]');
+                    if (errorOverlay) {
+                        // Make the error overlay visible
+                        errorOverlay.style.display = 'flex';
+                        errorOverlay.style.opacity = '1'; // Ensure it's fully opaque
+                    }
+                    console.error('Video loading failed for:', this.src);
+                }
+            };
+        });
+    </script>
+</body>
+</html>
