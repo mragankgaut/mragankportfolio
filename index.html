@@ -30,7 +30,7 @@
             overflow-x: hidden; /* Prevent horizontal scroll caused by animations */
         }
 
-        /* --- New: Preloader/Opening Animation Styles --- */
+        /* --- Preloader/Opening Animation Styles --- */
         #preloader {
             position: fixed;
             top: 0;
@@ -154,14 +154,16 @@
         /* Scroll Animation Class (Fade Up and In) */
         .fade-in-up {
             opacity: 0;
-            transform: translateY(20px) blur(5px);
+            transform: translateY(20px);
+            filter: blur(5px);
             transition: opacity 1s ease-out, transform 1s ease-out, filter 1s ease-out;
             will-change: opacity, transform, filter;
         }
 
         .fade-in-up.is-visible {
             opacity: 1;
-            transform: translateY(0) blur(0);
+            transform: translateY(0);
+            filter: blur(0);
         }
 
         /* Mobile Menu Tray Animation */
@@ -239,6 +241,7 @@
             <a href="#home" class="text-4xl font-black text-gray-200 hover:text-primary transition-colors" onclick="toggleMenu()">Home</a>
             <a href="#about" class="text-4xl font-black text-gray-200 hover:text-primary transition-colors" onclick="toggleMenu()">About</a>
             <a href="#services-highlight" class="text-4xl font-black text-gray-200 hover:text-primary transition-colors" onclick="toggleMenu()">Services</a>
+            <a href="#certificate" class="text-4xl font-black text-gray-200 hover:text-primary transition-colors" onclick="toggleMenu()">Certificate</a>
             <a href="#portfolio" class="text-4xl font-black text-gray-200 hover:text-primary transition-colors" onclick="toggleMenu()">Portfolio</a>
             <a href="#contact" class="text-4xl font-black text-gray-200 hover:text-primary transition-colors" onclick="toggleMenu()">Contact</a>
         </div>
@@ -256,6 +259,7 @@
             <nav class="hidden md:flex space-x-8 text-sm font-medium">
                 <a href="#about" class="hover:text-primary transition-colors">About</a>
                 <a href="#services-highlight" class="hover:text-primary transition-colors">Services</a>
+                <a href="#certificate" class="hover:text-primary transition-colors">Certificate</a>
                 <a href="#portfolio" class="hover:text-primary transition-colors">Portfolio</a>
                 <a href="#contact" class="hover:text-primary transition-colors">Contact</a>
             </nav>
@@ -278,13 +282,13 @@
                 <p class="mt-6 text-xl text-gray-400 font-light max-w-3xl mx-auto fade-in-up" style="transition-delay: 0.2s;">
                     With 2 years of high-end experience, I elevate your podcast content with precision video editing and minimal motion graphics, engineered for maximum engagement. I'm Mragank Gautam.
                 </p>
-                <!-- ADDED: CTA Button in Hero Section -->
+                <!-- CTA Button in Hero Section -->
                 <a href="#contact" class="glow-btn inline-block mt-10 px-8 py-3 rounded-full text-base uppercase tracking-wider fade-in-up" style="transition-delay: 0.4s;">
                     Work With Me
                 </a>
             </div>
 
-            <!-- UPDATED: Hero Reel Placeholder with DaVinci Interface Visual -->
+            <!-- Hero Reel Placeholder with DaVinci Interface Visual -->
             <div class="relative w-full max-w-4xl mt-24 glass-card p-4 fade-in-up" style="transition-delay: 0.6s;">
                 <img src="./image.jpeg" 
                      alt="Professional DaVinci Resolve Timeline"
@@ -298,7 +302,6 @@
                     </p>
                 </div>
             </div>
-            <!-- END UPDATED HERO SECTION -->
         </section>
 
         <!-- 2. Specializations (Services Highlight) -->
@@ -328,7 +331,38 @@
             </div>
         </section>
 
-        <!-- 3. Work Showcase/Portfolio -->
+        <!-- 3. Certificate Section (with image, above videos) -->
+        <section id="certificate" class="py-24 px-4 border-t border-gray-900">
+            <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-10 items-center">
+                <!-- Text Side -->
+                <div class="fade-in-up">
+                    <h2 class="text-4xl sm:text-5xl font-black luxury-heading mb-6">
+                        Certified <span class="text-primary">Post-Production Skills.</span>
+                    </h2>
+                    <p class="text-lg text-gray-400 font-light leading-relaxed">
+                        Along with hands-on client work, I’ve also invested in structured post-production training.
+                        This certificate validates my foundation in editing, storytelling, and technical workflow—
+                        the same principles I apply in every podcast and visual project I take on.
+                    </p>
+                    <p class="mt-4 text-sm text-gray-500">
+                        It’s not just about knowing the tools, but knowing how to use them with intention:
+                        from clean cuts and dialogue clarity to color consistency and delivery-ready masters.
+                    </p>
+                </div>
+
+                <!-- Certificate Image Side -->
+                <div class="glass-card p-4 rounded-xl fade-in-up" style="transition-delay: 0.2s;">
+                    <img 
+                        src="./certificate.png" 
+                        alt="Certificate - Post-Production & Editing - Mragank Gautam"
+                        class="w-full h-auto rounded-lg border border-[#1f1f1f] shadow-lg"
+                        onerror="this.onerror=null;this.src='https://placehold.co/1000x700/1e1e1e/8f8f8f?text=CERTIFICATE+IMAGE+NOT+FOUND';"
+                    >
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Work Showcase/Portfolio (Videos Section) -->
         <section id="portfolio" class="py-24 px-4 border-t border-gray-900">
             <div class="max-w-7xl mx-auto">
                 <h2 class="text-4xl sm:text-5xl font-black luxury-heading mb-16 fade-in-up">
@@ -336,12 +370,12 @@
                 </h2>
 
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Portfolio Item 1: Raj Shamani 2 (Previously Control Z) -->
+                    <!-- Portfolio Item 1: Raj Shamani 2 -->
                     <div class="portfolio-item-container fade-in-up">
                         <video class="w-full h-full object-cover rounded-xl" autoplay muted loop playsinline src="podcas_edit_video/raj shamani 2.mp4" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                             <source src="podcas_edit_video/raj shamani 2.mp4" type="video/mp4">
                         </video>
-                         <div class="portfolio-overlay" style="display: none; background-color: #0A0A0A; opacity: 1;">
+                        <div class="portfolio-overlay" style="display: none; background-color: #0A0A0A; opacity: 1;">
                             <p class="text-lg font-bold">Raj Shamani 2 - Video Error</p>
                             <p class="text-sm text-gray-400 mt-2">Video file not found or unsupported.</p>
                         </div>
@@ -351,12 +385,13 @@
                             <p class="text-sm text-primary mt-2 p-1 rounded-full border border-primary">Podcast Insight</p>
                         </div>
                     </div>
-                    <!-- Portfolio Item 2: Raj Shamani Edit 1 (Original) -->
+
+                    <!-- Portfolio Item 2: Raj Shamani Edit 1 -->
                     <div class="portfolio-item-container fade-in-up" style="transition-delay: 0.1s;">
                         <video class="w-full h-full object-cover rounded-xl" autoplay muted loop playsinline src="podcas_edit_video/raj shamani edit.mp4" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                             <source src="podcas_edit_video/raj shamani edit.mp4" type="video/mp4">
                         </video>
-                         <div class="portfolio-overlay" style="display: none; background-color: #0A0A0A; opacity: 1;">
+                        <div class="portfolio-overlay" style="display: none; background-color: #0A0A0A; opacity: 1;">
                             <p class="text-lg font-bold">Raj Shamani - Video Error</p>
                             <p class="text-sm text-gray-400 mt-2">Video file not found or unsupported.</p>
                         </div>
@@ -366,12 +401,13 @@
                             <p class="text-sm text-primary mt-2 p-1 rounded-full border border-primary">High-Energy Cut</p>
                         </div>
                     </div>
+
                     <!-- Portfolio Item 3: Sydney Sweeney -->
                     <div class="portfolio-item-container fade-in-up" style="transition-delay: 0.2s;">
                         <video class="w-full h-full object-cover rounded-xl" autoplay muted loop playsinline src="podcas_edit_video/sydney_sweeney.mp4" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                             <source src="podcas_edit_video/sydney_sweeney.mp4" type="video/mp4">
                         </video>
-                         <div class="portfolio-overlay" style="display: none; background-color: #0A0A0A; opacity: 1;">
+                        <div class="portfolio-overlay" style="display: none; background-color: #0A0A0A; opacity: 1;">
                             <p class="text-lg font-bold">Sydney Sweeney - Video Error</p>
                             <p class="text-sm text-gray-400 mt-2">Video file not found or unsupported.</p>
                         </div>
@@ -391,14 +427,13 @@
             </div>
         </section>
 
-        <!-- 4. Testimonials / Philosophy -->
+        <!-- 5. Testimonials / Philosophy -->
         <section id="testimonials" class="py-24 px-4 border-t border-gray-900">
             <div class="max-w-5xl mx-auto">
                 <h2 class="text-4xl sm:text-5xl font-black luxury-heading text-center mb-16 fade-in-up">
                     The Philosophy of <span class="text-primary">The Frame.</span>
                 </h2>
 
-                <!-- Testimonial Slider Placeholder -->
                 <div class="space-y-12 fade-in-up" style="transition-delay: 0.1s;">
                     <div class="glass-card p-8 rounded-xl">
                         <ph-icon name="quotes" weight="light" class="w-10 h-10 text-primary mb-4"></ph-icon>
@@ -420,7 +455,6 @@
                 </div>
 
                 <div class="text-center mt-8">
-                    <!-- Slider dots placeholder -->
                     <span class="inline-block w-2 h-2 bg-primary rounded-full mx-1"></span>
                     <span class="inline-block w-2 h-2 bg-gray-700 rounded-full mx-1"></span>
                     <span class="inline-block w-2 h-2 bg-gray-700 rounded-full mx-1"></span>
@@ -428,7 +462,7 @@
             </div>
         </section>
 
-        <!-- 5. Tools & Workflow -->
+        <!-- 6. Tools & Workflow -->
         <section id="workflow" class="py-24 px-4 border-t border-gray-900">
             <div class="max-w-7xl mx-auto">
                 <h2 class="text-4xl sm:text-5xl font-black luxury-heading text-center mb-16 fade-in-up">
@@ -464,7 +498,7 @@
             </div>
         </section>
 
-        <!-- 6. Mission -->
+        <!-- 7. Mission -->
         <section id="mission" class="py-24 px-4 border-t border-gray-900">
             <div class="max-w-4xl mx-auto text-center">
                 <h2 class="text-4xl sm:text-5xl font-black luxury-heading mb-8 fade-in-up">
@@ -476,7 +510,7 @@
             </div>
         </section>
 
-        <!-- 7. CTA Section (Contact) -->
+        <!-- 8. CTA Section (Contact) -->
         <section id="contact" class="py-24 px-4 border-y border-primary/20 bg-primary/[0.05]">
             <div class="max-w-4xl mx-auto text-center">
                 <h2 class="text-4xl sm:text-5xl font-black luxury-heading mb-6 text-white fade-in-up">
@@ -559,7 +593,6 @@
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('is-visible');
-                    // Stop observing once visible to prevent re-triggering
                     observer.unobserve(entry.target);
                 }
             });
@@ -572,43 +605,25 @@
 
         // --- Opening Animation (Preloader Fade Out) ---
         window.addEventListener('load', () => {
-            // Ensure the background animation is set up
-            const volumetricBg = document.getElementById('volumetric-bg');
-            if (volumetricBg) {
-                // Set the initial glow positions (hidden in CSS for animation)
-                volumetricBg.querySelector('style').textContent += `
-                    #volumetric-bg::before { animation-name: glow-move-one; }
-                    #volumetric-bg::after { animation-name: glow-move-two; animation-delay: -20s; }
-                `;
-            }
-
-            // Start fade out after a short delay (for visual effect)
             setTimeout(() => {
                 preloader.classList.add('fade-out');
-            }, 500); // 0.5 second delay before fading out
+            }, 500);
 
-            // Remove preloader from DOM after transition finishes
             setTimeout(() => {
                 preloader.style.display = 'none';
-            }, 1300); // Wait for the 0.8s transition + delay
+            }, 1300);
         });
 
         // --- Error Handling for Video Playback ---
-        // This ensures a clear message is shown if the local video file is missing.
         document.querySelectorAll('.portfolio-item-container video').forEach(video => {
             video.onerror = function() {
-                // Find the parent container
                 const container = video.closest('.portfolio-item-container');
                 if (container) {
-                    // Hide the video element
                     video.style.display = 'none';
-
-                    // Find the error overlay placeholder (the one with style="display: none;")
                     const errorOverlay = container.querySelector('.portfolio-overlay[style*="display: none"]');
                     if (errorOverlay) {
-                        // Make the error overlay visible
                         errorOverlay.style.display = 'flex';
-                        errorOverlay.style.opacity = '1'; // Ensure it's fully opaque
+                        errorOverlay.style.opacity = '1';
                     }
                     console.error('Video loading failed for:', this.src);
                 }
