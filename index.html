@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Frame | Mragank Gautam - Visual Storytelling Redefined</title>
-    <!-- Load Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Load Phosphor Icons -->
     <script src="https://unpkg.com/@phosphor-icons/web@2.1.1/dist/index.min.js"></script>
     <style>
         /* Custom Tailwind Configuration (Inter font) */
@@ -206,12 +204,10 @@
 </head>
 <body class="bg-dark text-white">
 
-    <!-- NEW: Opening Animation Preloader -->
     <div id="preloader">
         <div class="preloader-icon"></div>
     </div>
 
-    <!-- Dynamic Background Layer -->
     <div id="volumetric-bg">
         <style>
             #volumetric-bg::before {
@@ -232,7 +228,6 @@
         </style>
     </div>
 
-    <!-- Mobile Menu Tray -->
     <div id="mobile-menu" class="menu-tray fixed top-0 right-0 w-full h-full bg-[#0A0A0A] z-50 p-8">
         <button id="close-menu" class="absolute top-6 right-6 text-3xl text-gray-400 hover:text-white transition-colors">
             <ph-icon name="x" weight="light" class="w-8 h-8"></ph-icon>
@@ -243,28 +238,26 @@
             <a href="#services-highlight" class="text-4xl font-black text-gray-200 hover:text-primary transition-colors" onclick="toggleMenu()">Services</a>
             <a href="#certificate" class="text-4xl font-black text-gray-200 hover:text-primary transition-colors" onclick="toggleMenu()">Certificate</a>
             <a href="#portfolio" class="text-4xl font-black text-gray-200 hover:text-primary transition-colors" onclick="toggleMenu()">Portfolio</a>
+            <a href="#long-form" class="text-4xl font-black text-gray-200 hover:text-primary transition-colors" onclick="toggleMenu()">Long Form</a>
             <a href="#contact" class="text-4xl font-black text-gray-200 hover:text-primary transition-colors" onclick="toggleMenu()">Contact</a>
         </div>
     </div>
 
-    <!-- Sticky Navigation (Desktop & Tablet) -->
     <header id="main-nav" class="fixed top-0 left-0 right-0 z-40 glass-nav">
         <div class="max-w-7xl mx-auto px-6 sm:px-10 py-4 flex justify-between items-center">
-            <!-- Logo -->
             <a href="#home" class="text-xl font-black luxury-heading text-white">
                 THE FRAME<span class="text-primary">.</span>
             </a>
 
-            <!-- Desktop Links -->
             <nav class="hidden md:flex space-x-8 text-sm font-medium">
                 <a href="#about" class="hover:text-primary transition-colors">About</a>
                 <a href="#services-highlight" class="hover:text-primary transition-colors">Services</a>
                 <a href="#certificate" class="hover:text-primary transition-colors">Certificate</a>
                 <a href="#portfolio" class="hover:text-primary transition-colors">Portfolio</a>
+                <a href="#long-form" class="hover:text-primary transition-colors">Long Form</a>
                 <a href="#contact" class="hover:text-primary transition-colors">Contact</a>
             </nav>
 
-            <!-- Mobile Burger Menu -->
             <button id="open-menu" class="md:hidden text-2xl text-white">
                 <ph-icon name="list" weight="light" class="w-7 h-7"></ph-icon>
             </button>
@@ -272,23 +265,19 @@
     </header>
 
     <main>
-        <!-- 1. Hero Section -->
         <section id="home" class="min-h-screen pt-40 pb-20 flex flex-col items-center justify-center text-center px-4">
             <div class="max-w-5xl mx-auto">
                 <h1 class="text-6xl sm:text-8xl font-black luxury-heading text-white fade-in-up">
                     VISUAL STORYTELLING. REDEFINED.
                 </h1>
-                <!-- UPDATED BIO -->
                 <p class="mt-6 text-xl text-gray-400 font-light max-w-3xl mx-auto fade-in-up" style="transition-delay: 0.2s;">
                     With 2 years of high-end experience, I elevate your podcast content with precision video editing and minimal motion graphics, engineered for maximum engagement. I'm Mragank Gautam.
                 </p>
-                <!-- CTA Button in Hero Section -->
                 <a href="#contact" class="glow-btn inline-block mt-10 px-8 py-3 rounded-full text-base uppercase tracking-wider fade-in-up" style="transition-delay: 0.4s;">
                     Work With Me
                 </a>
             </div>
 
-            <!-- Hero Reel Placeholder with DaVinci Interface Visual -->
             <div class="relative w-full max-w-4xl mt-24 glass-card p-4 fade-in-up" style="transition-delay: 0.6s;">
                 <img src="./image.jpeg" 
                      alt="Professional DaVinci Resolve Timeline"
@@ -304,7 +293,6 @@
             </div>
         </section>
 
-        <!-- 2. Specializations (Services Highlight) -->
         <section id="services-highlight" class="py-24 px-4 border-t border-gray-900">
             <h2 class="text-4xl sm:text-5xl font-black luxury-heading text-center mb-16 fade-in-up">
                 My Focus: <span class="text-primary">Luxury-Grade Visuals.</span>
@@ -331,10 +319,8 @@
             </div>
         </section>
 
-        <!-- 3. Certificate Section (with image, above videos) -->
         <section id="certificate" class="py-24 px-4 border-t border-gray-900">
             <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-10 items-center">
-                <!-- Text Side -->
                 <div class="fade-in-up">
                     <h2 class="text-4xl sm:text-5xl font-black luxury-heading mb-6">
                         Certified <span class="text-primary">Post-Production Skills.</span>
@@ -350,7 +336,6 @@
                     </p>
                 </div>
 
-                <!-- Certificate Image Side -->
                 <div class="glass-card p-4 rounded-xl fade-in-up" style="transition-delay: 0.2s;">
                     <img 
                         src="./certificate.png" 
@@ -362,7 +347,6 @@
             </div>
         </section>
 
-        <!-- 4. Work Showcase/Portfolio (Videos Section) -->
         <section id="portfolio" class="py-24 px-4 border-t border-gray-900">
             <div class="max-w-7xl mx-auto">
                 <h2 class="text-4xl sm:text-5xl font-black luxury-heading mb-16 fade-in-up">
@@ -370,7 +354,6 @@
                 </h2>
 
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Portfolio Item 1: Raj Shamani 2 -->
                     <div class="portfolio-item-container fade-in-up">
                         <video class="w-full h-full object-cover rounded-xl" autoplay muted loop playsinline src="podcas_edit_video/raj shamani 2.mp4" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                             <source src="podcas_edit_video/raj shamani 2.mp4" type="video/mp4">
@@ -386,7 +369,6 @@
                         </div>
                     </div>
 
-                    <!-- Portfolio Item 2: Raj Shamani Edit 1 -->
                     <div class="portfolio-item-container fade-in-up" style="transition-delay: 0.1s;">
                         <video class="w-full h-full object-cover rounded-xl" autoplay muted loop playsinline src="podcas_edit_video/raj shamani edit.mp4" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                             <source src="podcas_edit_video/raj shamani edit.mp4" type="video/mp4">
@@ -402,7 +384,6 @@
                         </div>
                     </div>
 
-                    <!-- Portfolio Item 3: Sydney Sweeney -->
                     <div class="portfolio-item-container fade-in-up" style="transition-delay: 0.2s;">
                         <video class="w-full h-full object-cover rounded-xl" autoplay muted loop playsinline src="podcas_edit_video/sydney_sweeney.mp4" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                             <source src="podcas_edit_video/sydney_sweeney.mp4" type="video/mp4">
@@ -427,7 +408,43 @@
             </div>
         </section>
 
-        <!-- 5. Testimonials / Philosophy -->
+        <section id="long-form" class="py-24 px-4 border-t border-gray-900">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-4xl sm:text-5xl font-black luxury-heading mb-12 fade-in-up">
+                    Long Form <span class="text-primary">& Commercials.</span>
+                </h2>
+
+                <div class="glass-card p-2 sm:p-4 rounded-2xl fade-in-up">
+                    <div class="relative w-full aspect-video rounded-xl overflow-hidden bg-black">
+                        <video class="w-full h-full object-cover" autoplay muted loop playsinline poster="podcas_edit_video/netflix_poster.jpg" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <source src="podcas_edit_video/Netflix ad.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        
+                        <div class="absolute inset-0 flex flex-col items-center justify-center bg-gray-900 text-center p-4" style="display: none;">
+                            <ph-icon name="warning" class="w-12 h-12 text-primary mb-2"></ph-icon>
+                            <p class="text-white font-bold">Netflix Ad Video Not Found</p>
+                            <p class="text-sm text-gray-400">Please check the file name is exactly 'Netflix ad.mp4' in the 'podcas_edit_video' folder.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-6 px-2 sm:px-4 pb-2">
+                        <div class="flex items-center justify-between flex-wrap gap-4">
+                            <div>
+                                <h3 class="text-2xl font-bold text-white">Netflix Ad Campaign</h3>
+                                <p class="text-gray-400 mt-1 font-light text-sm">
+                                    Commercial Grade Editing • Sound Design • Color Grading
+                                </p>
+                            </div>
+                            <button class="text-primary hover:text-white transition-colors flex items-center gap-2 text-sm font-semibold uppercase tracking-wide">
+                                View Details <ph-icon name="arrow-right" weight="bold"></ph-icon>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section id="testimonials" class="py-24 px-4 border-t border-gray-900">
             <div class="max-w-5xl mx-auto">
                 <h2 class="text-4xl sm:text-5xl font-black luxury-heading text-center mb-16 fade-in-up">
@@ -462,7 +479,6 @@
             </div>
         </section>
 
-        <!-- 6. Tools & Workflow -->
         <section id="workflow" class="py-24 px-4 border-t border-gray-900">
             <div class="max-w-7xl mx-auto">
                 <h2 class="text-4xl sm:text-5xl font-black luxury-heading text-center mb-16 fade-in-up">
@@ -470,25 +486,21 @@
                 </h2>
 
                 <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <!-- Tool Card 1 -->
                     <div class="glass-card p-6 rounded-xl text-center fade-in-up">
                         <ph-icon name="video-camera" weight="light" class="w-12 h-12 text-primary mx-auto mb-3"></ph-icon>
                         <h3 class="text-xl font-bold">DaVinci Resolve</h3>
                         <p class="text-sm text-gray-400 font-light mt-1">Core editing, advanced color grading, and seamless mastering.</p>
                     </div>
-                    <!-- Tool Card 2 -->
                     <div class="glass-card p-6 rounded-xl text-center fade-in-up" style="transition-delay: 0.1s;">
                         <ph-icon name="speaker-high" weight="light" class="w-12 h-12 text-primary mx-auto mb-3"></ph-icon>
                         <h3 class="text-xl font-bold">Fairlight Audio</h3>
                         <p class="text-sm text-gray-400 font-light mt-1">Professional audio cleanup, noise reduction, and mixing for clarity.</p>
                     </div>
-                    <!-- Tool Card 3 -->
                     <div class="glass-card p-6 rounded-xl text-center fade-in-up" style="transition-delay: 0.2s;">
                         <ph-icon name="atom" weight="light" class="w-12 h-12 text-primary mx-auto mb-3"></ph-icon>
                         <h3 class="text-xl font-bold">Fusion</h3>
                         <p class="text-sm text-gray-400 font-light mt-1">Custom, minimal motion graphics and visual effects integration.</p>
                     </div>
-                    <!-- Tool Card 4 -->
                     <div class="glass-card p-6 rounded-xl text-center fade-in-up" style="transition-delay: 0.3s;">
                         <ph-icon name="cloud" weight="light" class="w-12 h-12 text-primary mx-auto mb-3"></ph-icon>
                         <h3 class="text-xl font-bold">Client Portal</h3>
@@ -498,7 +510,6 @@
             </div>
         </section>
 
-        <!-- 7. Mission -->
         <section id="mission" class="py-24 px-4 border-t border-gray-900">
             <div class="max-w-4xl mx-auto text-center">
                 <h2 class="text-4xl sm:text-5xl font-black luxury-heading mb-8 fade-in-up">
@@ -510,7 +521,6 @@
             </div>
         </section>
 
-        <!-- 8. CTA Section (Contact) -->
         <section id="contact" class="py-24 px-4 border-y border-primary/20 bg-primary/[0.05]">
             <div class="max-w-4xl mx-auto text-center">
                 <h2 class="text-4xl sm:text-5xl font-black luxury-heading mb-6 text-white fade-in-up">
@@ -520,7 +530,6 @@
                     Let's connect. Find me on social media or reach out directly via email to discuss your next project.
                 </p>
 
-                <!-- Social Links -->
                 <div class="flex justify-center space-x-6 text-gray-300 mb-10 fade-in-up" style="transition-delay: 0.2s;">
                     <a href="https://www.linkedin.com/in/mragank-gautam-512895339" target="_blank" class="hover:text-primary transition-colors">
                         <ph-icon name="linkedin-logo" weight="light" class="w-8 h-8"></ph-icon>
@@ -533,7 +542,6 @@
                     </a>
                 </div>
                 
-                <!-- Action Buttons -->
                 <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6 fade-in-up" style="transition-delay: 0.3s;">
                     <a href="mailto:mragankgau63@gmail.com" class="glow-btn inline-block px-10 py-3 rounded-full text-lg uppercase tracking-wider">
                         Email Me Now
@@ -547,7 +555,6 @@
 
     </main>
 
-    <!-- Footer -->
     <footer class="py-10 px-4 text-center border-t border-gray-900">
         <p class="text-xs text-gray-600 font-light">
             © 2025 The Frame. Visual Storytelling by Mragank Gautam. All Rights Reserved.
@@ -615,12 +622,15 @@
         });
 
         // --- Error Handling for Video Playback ---
-        document.querySelectorAll('.portfolio-item-container video').forEach(video => {
+        document.querySelectorAll('.portfolio-item-container video, #long-form video').forEach(video => {
             video.onerror = function() {
-                const container = video.closest('.portfolio-item-container');
+                // Determine if this is a portfolio item or the long form player
+                const container = video.closest('.portfolio-item-container') || video.closest('.glass-card');
                 if (container) {
                     video.style.display = 'none';
-                    const errorOverlay = container.querySelector('.portfolio-overlay[style*="display: none"]');
+                    // Try to find an overlay (portfolio style) or a specific error div (long form style)
+                    const errorOverlay = container.querySelector('.portfolio-overlay[style*="display: none"]') || container.querySelector('div[style*="display: none"]');
+                    
                     if (errorOverlay) {
                         errorOverlay.style.display = 'flex';
                         errorOverlay.style.opacity = '1';
