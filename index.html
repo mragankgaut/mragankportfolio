@@ -25,7 +25,7 @@
             font-family: 'Inter', sans-serif;
             background-color: var(--color-dark);
             color: #F0F0F0;
-            overflow-x: hidden;
+            overflow-x: hidden; /* Prevent horizontal scroll caused by animations */
         }
 
         /* --- Preloader/Opening Animation Styles --- */
@@ -67,6 +67,7 @@
             0% { box-shadow: 0 0 10px rgba(255, 107, 0, 0.5); }
             100% { box-shadow: 0 0 20px rgba(255, 107, 0, 0.8); }
         }
+        /* --- End Preloader Styles --- */
 
         /* --- Volumetric Glow Background Styles --- */
         #volumetric-bg {
@@ -105,6 +106,8 @@
             33% { transform: translate(-20vw, -10vh) scale(1.05); opacity: 0.2; }
             66% { transform: translate(10vw, 15vh) scale(0.95); opacity: 0.1; }
         }
+        /* --- End Volumetric Glow Styles --- */
+
 
         /* Custom Styles for Luxury/Premium Feel */
         .glass-nav {
@@ -127,6 +130,7 @@
             transform: translateY(-4px);
         }
 
+        /* Custom Button Style (Subtle Neumorphic/Glow) */
         .glow-btn {
             background-color: var(--color-primary);
             color: var(--color-dark);
@@ -140,10 +144,12 @@
             transform: translateY(-2px);
         }
 
+        /* Heading Style - Tight Letter Spacing */
         .luxury-heading {
             letter-spacing: -0.04em;
         }
 
+        /* Scroll Animation Class (Fade Up and In) */
         .fade-in-up {
             opacity: 0;
             transform: translateY(20px);
@@ -158,6 +164,7 @@
             filter: blur(0);
         }
 
+        /* Mobile Menu Tray Animation */
         .menu-tray {
             transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
             transform: translateX(100%);
@@ -167,6 +174,7 @@
             transform: translateX(0);
         }
 
+        /* Custom Hover Effect for Portfolio */
         .portfolio-item-container {
             position: relative;
             overflow: hidden;
@@ -186,7 +194,7 @@
             justify-content: center;
             flex-direction: column;
             text-align: center;
-            border-radius: 0.75rem;
+            border-radius: 0.75rem; /* Match card rounding */
         }
 
         .portfolio-item-container:hover .portfolio-overlay {
@@ -202,8 +210,21 @@
 
     <div id="volumetric-bg">
         <style>
-            #volumetric-bg::before { top: 5vh; left: -15vw; width: 600px; height: 600px; animation-name: glow-move-one; }
-            #volumetric-bg::after { bottom: 10vh; right: -20vw; width: 700px; height: 700px; animation-name: glow-move-two; animation-delay: -20s; }
+            #volumetric-bg::before {
+                top: 5vh;
+                left: -15vw;
+                width: 600px;
+                height: 600px;
+                animation-name: glow-move-one;
+            }
+            #volumetric-bg::after {
+                bottom: 10vh;
+                right: -20vw;
+                width: 700px;
+                height: 700px;
+                animation-name: glow-move-two;
+                animation-delay: -20s;
+            }
         </style>
     </div>
 
@@ -227,6 +248,7 @@
             <a href="#home" class="text-xl font-black luxury-heading text-white">
                 THE FRAME<span class="text-primary">.</span>
             </a>
+
             <nav class="hidden md:flex space-x-8 text-sm font-medium">
                 <a href="#about" class="hover:text-primary transition-colors">About</a>
                 <a href="#services-highlight" class="hover:text-primary transition-colors">Services</a>
@@ -235,6 +257,7 @@
                 <a href="#long-form" class="hover:text-primary transition-colors">Long Form</a>
                 <a href="#contact" class="hover:text-primary transition-colors">Contact</a>
             </nav>
+
             <button id="open-menu" class="md:hidden text-2xl text-white">
                 <ph-icon name="list" weight="light" class="w-7 h-7"></ph-icon>
             </button>
@@ -319,8 +342,14 @@
                         Along with hands-on client work, I’ve also invested in structured post-production training. This certificate validates my foundation in editing, storytelling, and technical workflow.
                     </p>
                 </div>
+
                 <div class="glass-card p-4 rounded-xl fade-in-up" style="transition-delay: 0.2s;">
-                    <img src="./certificate.png" alt="Certificate" class="w-full h-auto rounded-lg border border-[#1f1f1f] shadow-lg" onerror="this.src='https://placehold.co/1000x700/1e1e1e/8f8f8f?text=CERTIFICATE+IMAGE+NOT+FOUND';">
+                    <img 
+                        src="./certificate.png" 
+                        alt="Certificate - Post-Production & Editing - Mragank Gautam"
+                        class="w-full h-auto rounded-lg border border-[#1f1f1f] shadow-lg"
+                        onerror="this.onerror=null;this.src='https://placehold.co/1000x700/1e1e1e/8f8f8f?text=CERTIFICATE+IMAGE+NOT+FOUND';"
+                    >
                 </div>
             </div>
         </section>
@@ -330,28 +359,58 @@
                 <h2 class="text-4xl sm:text-5xl font-black luxury-heading mb-16 fade-in-up">
                     The Result: <span class="text-primary">Visual Evidence of Excellence.</span>
                 </h2>
+
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <div class="portfolio-item-container fade-in-up">
-                        <video class="w-full h-full object-cover rounded-xl" autoplay muted loop playsinline src="podcas_edit_video/raj shamani 2.mp4"></video>
+                        <video class="w-full h-full object-cover rounded-xl" autoplay muted loop playsinline src="podcas_edit_video/raj shamani 2.mp4" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <source src="podcas_edit_video/raj shamani 2.mp4" type="video/mp4">
+                        </video>
+                        <div class="portfolio-overlay" style="display: none; background-color: #0A0A0A; opacity: 1;">
+                            <p class="text-lg font-bold">Raj Shamani 2 - Video Error</p>
+                            <p class="text-sm text-gray-400 mt-2">Video file not found or unsupported.</p>
+                        </div>
                         <div class="portfolio-overlay">
                             <ph-icon name="video-camera" weight="light" class="w-8 h-8 text-primary mb-2"></ph-icon>
                             <p class="text-lg font-bold">Raj Shamani Edit 2</p>
+                            <p class="text-sm text-primary mt-2 p-1 rounded-full border border-primary">Podcast Insight</p>
                         </div>
                     </div>
+
                     <div class="portfolio-item-container fade-in-up" style="transition-delay: 0.1s;">
-                        <video class="w-full h-full object-cover rounded-xl" autoplay muted loop playsinline src="podcas_edit_video/raj shamani edit.mp4"></video>
+                        <video class="w-full h-full object-cover rounded-xl" autoplay muted loop playsinline src="podcas_edit_video/raj shamani edit.mp4" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <source src="podcas_edit_video/raj shamani edit.mp4" type="video/mp4">
+                        </video>
+                        <div class="portfolio-overlay" style="display: none; background-color: #0A0A0A; opacity: 1;">
+                            <p class="text-lg font-bold">Raj Shamani - Video Error</p>
+                            <p class="text-sm text-gray-400 mt-2">Video file not found or unsupported.</p>
+                        </div>
                         <div class="portfolio-overlay">
                             <ph-icon name="video-camera" weight="light" class="w-8 h-8 text-primary mb-2"></ph-icon>
                             <p class="text-lg font-bold">Raj Shamani Edit 1</p>
+                            <p class="text-sm text-primary mt-2 p-1 rounded-full border border-primary">High-Energy Cut</p>
                         </div>
                     </div>
+
                     <div class="portfolio-item-container fade-in-up" style="transition-delay: 0.2s;">
-                        <video class="w-full h-full object-cover rounded-xl" autoplay muted loop playsinline src="podcas_edit_video/sydney_sweeney.mp4"></video>
+                        <video class="w-full h-full object-cover rounded-xl" autoplay muted loop playsinline src="podcas_edit_video/sydney_sweeney.mp4" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <source src="podcas_edit_video/sydney_sweeney.mp4" type="video/mp4">
+                        </video>
+                        <div class="portfolio-overlay" style="display: none; background-color: #0A0A0A; opacity: 1;">
+                            <p class="text-lg font-bold">Sydney Sweeney - Video Error</p>
+                            <p class="text-sm text-gray-400 mt-2">Video file not found or unsupported.</p>
+                        </div>
                         <div class="portfolio-overlay">
                             <ph-icon name="video-camera" weight="light" class="w-8 h-8 text-primary mb-2"></ph-icon>
                             <p class="text-lg font-bold">Sydney Sweeney Edit</p>
+                            <p class="text-sm text-primary mt-2 p-1 rounded-full border border-primary">Clean Cinematic Cut</p>
                         </div>
                     </div>
+                </div>
+
+                <div class="text-center mt-12 fade-in-up" style="transition-delay: 0.4s;">
+                    <a href="#contact" class="glow-btn inline-block px-8 py-3 rounded-full text-base uppercase tracking-wider">
+                        See Full Portfolio
+                    </a>
                 </div>
             </div>
         </section>
@@ -361,13 +420,33 @@
                 <h2 class="text-4xl sm:text-5xl font-black luxury-heading mb-12 fade-in-up">
                     Long Form <span class="text-primary">& Commercials.</span>
                 </h2>
+
                 <div class="glass-card p-2 sm:p-4 rounded-2xl fade-in-up">
                     <div class="relative w-full aspect-video rounded-xl overflow-hidden bg-black">
-                        <video class="w-full h-full object-cover" autoplay muted loop playsinline src="podcas_edit_video/Netflix ad.mp4"></video>
+                        <video class="w-full h-full object-cover" autoplay muted loop playsinline poster="podcas_edit_video/netflix_poster.jpg" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <source src="podcas_edit_video/Netflix ad.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        
+                        <div class="absolute inset-0 flex flex-col items-center justify-center bg-gray-900 text-center p-4" style="display: none;">
+                            <ph-icon name="warning" class="w-12 h-12 text-primary mb-2"></ph-icon>
+                            <p class="text-white font-bold">Netflix Ad Video Not Found</p>
+                            <p class="text-sm text-gray-400">Please check the file name is exactly 'Netflix ad.mp4' in the 'podcas_edit_video' folder.</p>
+                        </div>
                     </div>
-                    <div class="mt-6 px-4">
-                        <h3 class="text-2xl font-bold text-white">Netflix Ad Campaign</h3>
-                        <p class="text-gray-400 mt-1 font-light text-sm">Commercial Grade Editing • Sound Design • Color Grading</p>
+                    
+                    <div class="mt-6 px-2 sm:px-4 pb-2">
+                        <div class="flex items-center justify-between flex-wrap gap-4">
+                            <div>
+                                <h3 class="text-2xl font-bold text-white">Netflix Ad Campaign</h3>
+                                <p class="text-gray-400 mt-1 font-light text-sm">
+                                    Commercial Grade Editing • Sound Design • Color Grading
+                                </p>
+                            </div>
+                            <button class="text-primary hover:text-white transition-colors flex items-center gap-2 text-sm font-semibold uppercase tracking-wide">
+                                View Details <ph-icon name="arrow-right" weight="bold"></ph-icon>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -378,12 +457,31 @@
                 <h2 class="text-4xl sm:text-5xl font-black luxury-heading text-center mb-16 fade-in-up">
                     The Philosophy of <span class="text-primary">The Frame.</span>
                 </h2>
-                <div class="space-y-12 fade-in-up">
+
+                <div class="space-y-12 fade-in-up" style="transition-delay: 0.1s;">
                     <div class="glass-card p-8 rounded-xl">
                         <ph-icon name="quotes" weight="light" class="w-10 h-10 text-primary mb-4"></ph-icon>
-                        <p class="text-xl text-gray-300 italic font-light">"The edit is not done until the color is intentional. Every choice must serve the narrative."</p>
+                        <p class="text-xl text-gray-300 italic font-light">
+                            "The edit is not done until the color is intentional. Every choice, from the cleanest node structure to the final cinematic grade, must serve the narrative. That's Resolve mastery."
+                        </p>
                         <p class="mt-4 font-bold text-lg text-white">- Technical Precision</p>
+                        <p class="text-sm font-semibold text-primary mt-1">Focus: Flawless Resolve Execution</p>
                     </div>
+
+                    <div class="glass-card p-8 rounded-xl">
+                        <ph-icon name="quotes" weight="light" class="w-10 h-10 text-primary mb-4"></ph-icon>
+                        <p class="text-xl text-gray-300 italic font-light">
+                            "Rhythm is the most important element of podcast video. Knowing when to cut, when to hold, and using Fairlight to shape the silence—that’s how you lock in viewer retention."
+                        </p>
+                        <p class="mt-4 font-bold text-lg text-white">- Narrative Rhythm</p>
+                        <p class="text-sm font-semibold text-primary mt-1">Focus: Multicam & Fairlight Audio</p>
+                    </div>
+                </div>
+
+                <div class="text-center mt-8">
+                    <span class="inline-block w-2 h-2 bg-primary rounded-full mx-1"></span>
+                    <span class="inline-block w-2 h-2 bg-gray-700 rounded-full mx-1"></span>
+                    <span class="inline-block w-2 h-2 bg-gray-700 rounded-full mx-1"></span>
                 </div>
             </div>
         </section>
@@ -393,26 +491,27 @@
                 <h2 class="text-4xl sm:text-5xl font-black luxury-heading text-center mb-16 fade-in-up">
                     Built for <span class="text-primary">Efficiency and Quality.</span>
                 </h2>
+
                 <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
                     <div class="glass-card p-6 rounded-xl text-center fade-in-up">
                         <ph-icon name="video-camera" weight="light" class="w-12 h-12 text-primary mx-auto mb-3"></ph-icon>
                         <h3 class="text-xl font-bold">DaVinci Resolve</h3>
-                        <p class="text-sm text-gray-400 mt-1">Core editing and advanced color grading.</p>
+                        <p class="text-sm text-gray-400 font-light mt-1">Core editing, advanced color grading, and seamless mastering.</p>
                     </div>
                     <div class="glass-card p-6 rounded-xl text-center fade-in-up" style="transition-delay: 0.1s;">
                         <ph-icon name="speaker-high" weight="light" class="w-12 h-12 text-primary mx-auto mb-3"></ph-icon>
                         <h3 class="text-xl font-bold">Fairlight Audio</h3>
-                        <p class="text-sm text-gray-400 mt-1">Professional audio cleanup.</p>
+                        <p class="text-sm text-gray-400 font-light mt-1">Professional audio cleanup, noise reduction, and mixing for clarity.</p>
                     </div>
                     <div class="glass-card p-6 rounded-xl text-center fade-in-up" style="transition-delay: 0.2s;">
                         <ph-icon name="atom" weight="light" class="w-12 h-12 text-primary mx-auto mb-3"></ph-icon>
                         <h3 class="text-xl font-bold">Fusion</h3>
-                        <p class="text-sm text-gray-400 mt-1">Custom motion graphics.</p>
+                        <p class="text-sm text-gray-400 font-light mt-1">Custom, minimal motion graphics and visual effects integration.</p>
                     </div>
                     <div class="glass-card p-6 rounded-xl text-center fade-in-up" style="transition-delay: 0.3s;">
                         <ph-icon name="cloud" weight="light" class="w-12 h-12 text-primary mx-auto mb-3"></ph-icon>
                         <h3 class="text-xl font-bold">Client Portal</h3>
-                        <p class="text-sm text-gray-400 mt-1">Streamlined feedback loops.</p>
+                        <p class="text-sm text-gray-400 font-light mt-1">Streamlined asset sharing and feedback loops for efficiency.</p>
                     </div>
                 </div>
             </div>
@@ -421,45 +520,120 @@
         <section id="contact" class="py-24 px-4 border-y border-primary/20 bg-primary/[0.05]">
             <div class="max-w-4xl mx-auto text-center">
                 <h2 class="text-4xl sm:text-5xl font-black luxury-heading mb-6 text-white fade-in-up">
-                    Ready to <span class="text-primary">elevate your visuals</span>?
+                    Ready to <span class="text-primary">elevate your podcast visuals</span>?
                 </h2>
-                <div class="flex justify-center space-x-6 mb-10 fade-in-up">
-                    <a href="https://www.linkedin.com/in/mragank-gautam-512895339" target="_blank" class="hover:text-primary transition-colors"><ph-icon name="linkedin-logo" weight="light" class="w-8 h-8"></ph-icon></a>
-                    <a href="https://www.instagram.com/theframee._" target="_blank" class="hover:text-primary transition-colors"><ph-icon name="instagram-logo" weight="light" class="w-8 h-8"></ph-icon></a>
-                    <a href="mailto:mragankgau63@gmail.com" class="hover:text-primary transition-colors"><ph-icon name="envelope-simple" weight="light" class="w-8 h-8"></ph-icon></a>
+                <p class="text-xl text-gray-400 font-light max-w-2xl mx-auto mb-10 fade-in-up" style="transition-delay: 0.1s;">
+                    Let's connect. Find me on social media or reach out directly via email to discuss your next project.
+                </p>
+
+                <div class="flex justify-center space-x-6 text-gray-300 mb-10 fade-in-up" style="transition-delay: 0.2s;">
+                    <a href="https://www.linkedin.com/in/mragank-gautam-512895339" target="_blank" class="hover:text-primary transition-colors">
+                        <ph-icon name="linkedin-logo" weight="light" class="w-8 h-8"></ph-icon>
+                    </a>
+                    <a href="https://www.instagram.com/theframee._?igsh=MWsyeTN5aGM4eWtndw==" target="_blank" class="hover:text-primary transition-colors">
+                        <ph-icon name="instagram-logo" weight="light" class="w-8 h-8"></ph-icon>
+                    </a>
+                    <a href="mailto:mragankgau63@gmail.com" class="hover:text-primary transition-colors">
+                        <ph-icon name="envelope-simple" weight="light" class="w-8 h-8"></ph-icon>
+                    </a>
                 </div>
-                <a href="mailto:mragankgau63@gmail.com" class="glow-btn inline-block px-10 py-3 rounded-full text-lg uppercase tracking-wider fade-in-up">Email Me Now</a>
+                
+                <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6 fade-in-up" style="transition-delay: 0.3s;">
+                    <a href="mailto:mragankgau63@gmail.com" class="glow-btn inline-block px-10 py-3 rounded-full text-lg uppercase tracking-wider">
+                        Email Me Now
+                    </a>
+                    <a href="https://www.linkedin.com/in/mragank-gautam-512895339" target="_blank" class="glow-btn inline-block px-10 py-3 rounded-full text-lg uppercase tracking-wider bg-gray-700 hover:bg-gray-600 text-white" style="box-shadow: none;">
+                        Connect on LinkedIn
+                    </a>
+                </div>
             </div>
         </section>
+
     </main>
 
     <footer class="py-10 px-4 text-center border-t border-gray-900">
-        <p class="text-xs text-gray-600 font-light">© 2025 The Frame. Visual Storytelling by Mragank Gautam.</p>
+        <p class="text-xs text-gray-600 font-light">
+            © 2025 The Frame. Visual Storytelling by Mragank Gautam. All Rights Reserved.
+        </p>
+        <div class="flex justify-center space-x-4 mt-3">
+            <a href="https://www.linkedin.com/in/mragank-gautam-512895339" target="_blank" class="text-gray-500 hover:text-primary transition-colors">
+                <ph-icon name="linkedin-logo" weight="light" class="w-5 h-5"></ph-icon>
+            </a>
+            <a href="https://www.instagram.com/theframee._?igsh=MWsyeTN5aGM4eWtndw==" target="_blank" class="text-gray-500 hover:text-primary transition-colors">
+                <ph-icon name="instagram-logo" weight="light" class="w-5 h-5"></ph-icon>
+            </a>
+            <a href="mailto:mragankgau63@gmail.com" class="text-gray-500 hover:text-primary transition-colors">
+                <ph-icon name="envelope-simple" weight="light" class="w-5 h-5"></ph-icon>
+            </a>
+        </div>
     </footer>
 
+
     <script>
+        // --- Setup for Mobile Menu and Scroll Animations ---
+
         const mobileMenu = document.getElementById('mobile-menu');
         const openMenuBtn = document.getElementById('open-menu');
         const closeMenuBtn = document.getElementById('close-menu');
         const preloader = document.getElementById('preloader');
 
-        function toggleMenu() { mobileMenu.classList.toggle('is-open'); }
+        // Function to toggle mobile menu visibility
+        function toggleMenu() {
+            mobileMenu.classList.toggle('is-open');
+        }
+
         openMenuBtn.addEventListener('click', toggleMenu);
         closeMenuBtn.addEventListener('click', toggleMenu);
 
-        const observer = new IntersectionObserver((entries) => {
+        // --- Intersection Observer for Scroll Animations (Fade In Up) ---
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1 // Trigger when 10% of the element is visible
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
                 }
             });
-        }, { threshold: 0.1 });
+        }, observerOptions);
 
-        document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
+        // Target all elements with the animation class
+        document.querySelectorAll('.fade-in-up').forEach(el => {
+            observer.observe(el);
+        });
 
+        // --- Opening Animation (Preloader Fade Out) ---
         window.addEventListener('load', () => {
-            setTimeout(() => { preloader.classList.add('fade-out'); }, 500);
-            setTimeout(() => { preloader.style.display = 'none'; }, 1300);
+            setTimeout(() => {
+                preloader.classList.add('fade-out');
+            }, 500);
+
+            setTimeout(() => {
+                preloader.style.display = 'none';
+            }, 1300);
+        });
+
+        // --- Error Handling for Video Playback ---
+        document.querySelectorAll('.portfolio-item-container video, #long-form video, #home video').forEach(video => {
+            video.onerror = function() {
+                // Determine if this is a portfolio item or the player
+                const container = video.closest('.portfolio-item-container') || video.closest('.glass-card') || video.closest('.relative');
+                if (container) {
+                    video.style.display = 'none';
+                    // Try to find an overlay (portfolio style) or a specific error div
+                    const errorOverlay = container.querySelector('.portfolio-overlay[style*="display: none"]') || container.querySelector('div[style*="display: none"]');
+                    
+                    if (errorOverlay) {
+                        errorOverlay.style.display = 'flex';
+                        errorOverlay.style.opacity = '1';
+                    }
+                    console.error('Video loading failed for:', this.src);
+                }
+            };
         });
     </script>
 </body>
