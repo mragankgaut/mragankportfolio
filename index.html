@@ -106,7 +106,6 @@
             66% { transform: translate(10vw, 15vh) scale(0.95); opacity: 0.1; }
         }
 
-        /* Custom Styles for Luxury/Premium Feel */
         .glass-nav {
             backdrop-filter: blur(8px);
             background-color: rgba(10, 10, 10, 0.85);
@@ -438,14 +437,14 @@
 
                     <div class="glass-card p-2 sm:p-4 rounded-2xl fade-in-up">
                         <div class="relative w-full aspect-video rounded-xl overflow-hidden bg-black">
-                            <video class="w-full h-full object-cover" autoplay muted loop playsinline onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                                <source src="podcas_edit_video/Editing Skool.mp4" type="video/mp4">
+                            <video class="w-full h-full object-cover" autoplay muted loop playsinline src="podcas_edit_video/Editing_Skool.mp4" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <source src="podcas_edit_video/Editing_Skool.mp4" type="video/mp4">
                             </video>
                             
                             <div class="absolute inset-0 flex flex-col items-center justify-center bg-gray-900 text-center p-4" style="display: none;">
                                 <ph-icon name="warning" class="w-12 h-12 text-primary mb-2"></ph-icon>
                                 <p class="text-white font-bold">Editing Skool Video Not Found</p>
-                                <p class="text-sm text-gray-400">Ensure 'Editing Skool.mp4' is in the 'podcas_edit_video' folder.</p>
+                                <p class="text-sm text-gray-400">Ensure 'Editing_Skool.mp4' is in the 'podcas_edit_video' folder.</p>
                             </div>
                         </div>
                         
