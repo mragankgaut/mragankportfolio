@@ -25,7 +25,7 @@
             font-family: 'Inter', sans-serif;
             background-color: var(--color-dark);
             color: #F0F0F0;
-            overflow-x: hidden;
+            overflow-x: hidden; /* Prevent horizontal scroll caused by animations */
         }
 
         /* --- Preloader/Opening Animation Styles --- */
@@ -106,6 +106,7 @@
             66% { transform: translate(10vw, 15vh) scale(0.95); opacity: 0.1; }
         }
 
+        /* Custom Styles for Luxury/Premium Feel */
         .glass-nav {
             backdrop-filter: blur(8px);
             background-color: rgba(10, 10, 10, 0.85);
@@ -269,24 +270,28 @@
                 </a>
             </div>
 
-            <div class="relative w-full max-w-4xl mt-24 glass-card p-4 fade-in-up" style="transition-delay: 0.6s;">
-                <div class="relative w-full aspect-video rounded-lg overflow-hidden border border-[#1f1f1f] shadow-lg bg-black">
-                    <video class="w-full h-full object-cover" autoplay muted loop playsinline src="podcas_edit_video/Before_and_after.mp4" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                        <source src="podcas_edit_video/Before_and_after.mp4" type="video/mp4">
-                    </video>
-                    
-                    <div class="absolute inset-0 flex flex-col items-center justify-center bg-gray-900 text-center p-4" style="display: none;">
-                        <ph-icon name="warning" class="w-12 h-12 text-primary mb-2"></ph-icon>
-                        <p class="text-white font-bold">Comparison Video Not Found</p>
-                        <p class="text-sm text-gray-400">Ensure 'Before_and_after.mp4' is in the 'podcas_edit_video' folder.</p>
+            <div class="flex flex-col gap-12 mt-24 w-full max-w-4xl mx-auto">
+                <div class="glass-card p-4 fade-in-up" style="transition-delay: 0.6s;">
+                    <div class="relative w-full aspect-video rounded-lg overflow-hidden border border-[#1f1f1f] shadow-lg bg-black">
+                        <video id="hero-video" class="w-full h-full object-cover" autoplay muted loop playsinline src="podcas_edit_video/Color_Grading.mp4">
+                            <source src="podcas_edit_video/Color_Grading.mp4" type="video/mp4">
+                        </video>
                     </div>
                 </div>
-                
-                <div class="mt-6 text-left">
-                    <h3 class="text-xl font-bold text-white uppercase tracking-tight">The Art of Storytelling</h3>
-                    <p class="text-sm text-gray-400 font-light leading-relaxed mt-2">
-                        Visual impact isn't just aesthetic; it's narrative. I transform raw footage into cinematic visuals using advanced post-production techniques. By focusing on intentional pacing, matching multi-cam setups, and applying professional visual palettes, I ensure your podcast looks as professional as it sounds.
-                    </p>
+
+                <div class="glass-card p-4 fade-in-up" style="transition-delay: 0.7s;">
+                    <div class="relative w-full aspect-video rounded-lg overflow-hidden border border-[#1f1f1f] shadow-lg bg-black">
+                        <video class="w-full h-full object-cover" autoplay muted loop playsinline src="podcas_edit_video/Before_and_after.mp4">
+                            <source src="podcas_edit_video/Before_and_after.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    
+                    <div class="mt-6 text-left">
+                        <h3 class="text-xl font-bold text-white uppercase tracking-tight">The Art of Storytelling</h3>
+                        <p class="text-sm text-gray-400 font-light leading-relaxed mt-2">
+                            Visual impact isn't just aesthetic; it's narrative. I transform raw footage into cinematic visuals using advanced post-production techniques. By focusing on intentional pacing, matching multi-cam setups, and applying professional visual palettes, I ensure your podcast looks as professional as it sounds.
+                        </p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -295,24 +300,30 @@
             <h2 class="text-4xl sm:text-5xl font-black luxury-heading text-center mb-16 fade-in-up">
                 My Focus: <span class="text-primary">Luxury-Grade Visuals.</span>
             </h2>
-            <div class="max-w-7xl mx-auto grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="max-w-7xl mx-auto grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
 
                 <div class="glass-card p-8 rounded-xl fade-in-up">
                     <ph-icon name="microphone-stage" weight="light" class="w-10 h-10 text-primary mb-4"></ph-icon>
-                    <h3 class="text-2xl font-black luxury-heading mb-3">Podcast Video Mastery</h3>
-                    <p class="text-gray-400 font-light text-sm">Seamless editing tailored for long-form dialogue. Focus on clean cuts, dynamic framing, and optimal rhythm to hold attention over extended periods.</p>
+                    <h3 class="text-xl font-black luxury-heading mb-3">Podcast Video Mastery</h3>
+                    <p class="text-gray-400 font-light text-xs">Seamless editing tailored for long-form dialogue. Focus on clean cuts and optimal rhythm.</p>
                 </div>
 
                 <div class="glass-card p-8 rounded-xl fade-in-up" style="transition-delay: 0.1s;">
-                    <ph-icon name="circuitry" weight="light" class="w-10 h-10 text-primary mb-4"></ph-icon>
-                    <h3 class="text-2xl font-black luxury-heading mb-3">Motion Graphics</h3>
-                    <p class="text-gray-400 font-light text-sm">High-impact motion graphics (lower-thirds, title cards, animated statistics) that support, not distract, from the core message.</p>
+                    <ph-icon name="palette" weight="light" class="w-10 h-10 text-primary mb-4"></ph-icon>
+                    <h3 class="text-xl font-black luxury-heading mb-3">Professional Color Grading</h3>
+                    <p class="text-gray-400 font-light text-xs">Advanced cinematic color correction and mood setting using industry-standard tools.</p>
                 </div>
 
                 <div class="glass-card p-8 rounded-xl fade-in-up" style="transition-delay: 0.2s;">
+                    <ph-icon name="arrow-clockwise" weight="light" class="w-10 h-10 text-primary mb-4"></ph-icon>
+                    <h3 class="text-xl font-black luxury-heading mb-3">Scroll Stopper Reel & Retention Editing</h3>
+                    <p class="text-gray-400 font-light text-xs">Short-form content designed to hook viewers and maximize watch time through high-impact rhythm.</p>
+                </div>
+
+                <div class="glass-card p-8 rounded-xl fade-in-up" style="transition-delay: 0.3s;">
                     <ph-icon name="magic-wand" weight="light" class="w-10 h-10 text-primary mb-4"></ph-icon>
-                    <h3 class="text-2xl font-black luxury-heading mb-3">DaVinci Resolve Workflow</h3>
-                    <p class="text-gray-400 font-light text-sm">Primary expertise in DaVinci Resolve for full editorial and Fairlight audio cleanup—delivering an all-in-one final product.</p>
+                    <h3 class="text-xl font-black luxury-heading mb-3">DaVinci Resolve Workflow</h3>
+                    <p class="text-gray-400 font-light text-xs">Expert editorial and Fairlight audio cleanup—delivering an all-in-one final product.</p>
                 </div>
             </div>
         </section>
@@ -347,13 +358,7 @@
 
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <div class="portfolio-item-container fade-in-up">
-                        <video class="w-full h-full object-cover rounded-xl" autoplay muted loop playsinline src="podcas_edit_video/raj shamani 2.mp4" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                            <source src="podcas_edit_video/raj shamani 2.mp4" type="video/mp4">
-                        </video>
-                        <div class="portfolio-overlay" style="display: none; background-color: #0A0A0A; opacity: 1;">
-                            <p class="text-lg font-bold">Raj Shamani 2 - Video Error</p>
-                            <p class="text-sm text-gray-400 mt-2">Video file not found or unsupported.</p>
-                        </div>
+                        <video class="w-full h-full object-cover rounded-xl" autoplay muted loop playsinline src="podcas_edit_video/raj shamani 2.mp4"></video>
                         <div class="portfolio-overlay">
                             <ph-icon name="video-camera" weight="light" class="w-8 h-8 text-primary mb-2"></ph-icon>
                             <p class="text-lg font-bold">Raj Shamani Edit 2</p>
@@ -362,13 +367,7 @@
                     </div>
 
                     <div class="portfolio-item-container fade-in-up" style="transition-delay: 0.1s;">
-                        <video class="w-full h-full object-cover rounded-xl" autoplay muted loop playsinline src="podcas_edit_video/raj shamani edit.mp4" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                            <source src="podcas_edit_video/raj shamani edit.mp4" type="video/mp4">
-                        </video>
-                        <div class="portfolio-overlay" style="display: none; background-color: #0A0A0A; opacity: 1;">
-                            <p class="text-lg font-bold">Raj Shamani - Video Error</p>
-                            <p class="text-sm text-gray-400 mt-2">Video file not found or unsupported.</p>
-                        </div>
+                        <video class="w-full h-full object-cover rounded-xl" autoplay muted loop playsinline src="podcas_edit_video/raj shamani edit.mp4"></video>
                         <div class="portfolio-overlay">
                             <ph-icon name="video-camera" weight="light" class="w-8 h-8 text-primary mb-2"></ph-icon>
                             <p class="text-lg font-bold">Raj Shamani Edit 1</p>
@@ -377,13 +376,7 @@
                     </div>
 
                     <div class="portfolio-item-container fade-in-up" style="transition-delay: 0.2s;">
-                        <video class="w-full h-full object-cover rounded-xl" autoplay muted loop playsinline src="podcas_edit_video/sydney_sweeney.mp4" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                            <source src="podcas_edit_video/sydney_sweeney.mp4" type="video/mp4">
-                        </video>
-                        <div class="portfolio-overlay" style="display: none; background-color: #0A0A0A; opacity: 1;">
-                            <p class="text-lg font-bold">Sydney Sweeney - Video Error</p>
-                            <p class="text-sm text-gray-400 mt-2">Video file not found or unsupported.</p>
-                        </div>
+                        <video class="w-full h-full object-cover rounded-xl" autoplay muted loop playsinline src="podcas_edit_video/sydney_sweeney.mp4"></video>
                         <div class="portfolio-overlay">
                             <ph-icon name="video-camera" weight="light" class="w-8 h-8 text-primary mb-2"></ph-icon>
                             <p class="text-lg font-bold">Sydney Sweeney Edit</p>
@@ -409,43 +402,9 @@
                 <div class="flex flex-col space-y-12">
                     <div class="glass-card p-2 sm:p-4 rounded-2xl fade-in-up">
                         <div class="relative w-full aspect-video rounded-xl overflow-hidden bg-black">
-                            <video class="w-full h-full object-cover" autoplay muted loop playsinline poster="podcas_edit_video/netflix_poster.jpg" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                                <source src="podcas_edit_video/Netflix ad.mp4" type="video/mp4">
-                            </video>
-                            
-                            <div class="absolute inset-0 flex flex-col items-center justify-center bg-gray-900 text-center p-4" style="display: none;">
-                                <ph-icon name="warning" class="w-12 h-12 text-primary mb-2"></ph-icon>
-                                <p class="text-white font-bold">Netflix Ad Video Not Found</p>
-                                <p class="text-sm text-gray-400">Please check the file name is exactly 'Netflix ad.mp4' in the 'podcas_edit_video' folder.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="mt-6 px-2 sm:px-4 pb-2">
-                            <div class="flex items-center justify-between flex-wrap gap-4">
-                                <div>
-                                    <h3 class="text-2xl font-bold text-white">Netflix Ad Campaign</h3>
-                                    <p class="text-gray-400 mt-1 font-light text-sm">
-                                        Commercial Grade Editing • Sound Design • Professional Assembly
-                                    </p>
-                                </div>
-                                <button class="text-primary hover:text-white transition-colors flex items-center gap-2 text-sm font-semibold uppercase tracking-wide">
-                                    View Details <ph-icon name="arrow-right" weight="bold"></ph-icon>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="glass-card p-2 sm:p-4 rounded-2xl fade-in-up">
-                        <div class="relative w-full aspect-video rounded-xl overflow-hidden bg-black">
-                            <video class="w-full h-full object-cover" autoplay muted loop playsinline src="podcas_edit_video/Editing_Skool.mp4" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <video class="w-full h-full object-cover" autoplay muted loop playsinline src="podcas_edit_video/Editing_Skool.mp4">
                                 <source src="podcas_edit_video/Editing_Skool.mp4" type="video/mp4">
                             </video>
-                            
-                            <div class="absolute inset-0 flex flex-col items-center justify-center bg-gray-900 text-center p-4" style="display: none;">
-                                <ph-icon name="warning" class="w-12 h-12 text-primary mb-2"></ph-icon>
-                                <p class="text-white font-bold">Editing Skool Video Not Found</p>
-                                <p class="text-sm text-gray-400">Ensure 'Editing_Skool.mp4' is in the 'podcas_edit_video' folder.</p>
-                            </div>
                         </div>
                         
                         <div class="mt-6 px-2 sm:px-4 pb-2">
@@ -490,12 +449,6 @@
                         <p class="mt-4 font-bold text-lg text-white">- Narrative Rhythm</p>
                         <p class="text-sm font-semibold text-primary mt-1">Focus: Multicam & Fairlight Audio</p>
                     </div>
-                </div>
-
-                <div class="text-center mt-8">
-                    <span class="inline-block w-2 h-2 bg-primary rounded-full mx-1"></span>
-                    <span class="inline-block w-2 h-2 bg-gray-700 rounded-full mx-1"></span>
-                    <span class="inline-block w-2 h-2 bg-gray-700 rounded-full mx-1"></span>
                 </div>
             </div>
         </section>
@@ -567,26 +520,13 @@
                 </div>
             </div>
         </section>
-
     </main>
 
     <footer class="py-10 px-4 text-center border-t border-gray-900">
         <p class="text-xs text-gray-600 font-light">
-            © 2025 The Frame. Visual Storytelling by Mragank Gautam. All Rights Reserved.
+            © 2026 The Frame. Visual Storytelling by Mragank Gautam. All Rights Reserved.
         </p>
-        <div class="flex justify-center space-x-4 mt-3">
-            <a href="https://www.linkedin.com/in/mragank-gautam-512895339" target="_blank" class="text-gray-500 hover:text-primary transition-colors">
-                <ph-icon name="linkedin-logo" weight="light" class="w-5 h-5"></ph-icon>
-            </a>
-            <a href="https://www.instagram.com/theframee._?igsh=MWsyeTN5aGM4eWtndw==" target="_blank" class="text-gray-500 hover:text-primary transition-colors">
-                <ph-icon name="instagram-logo" weight="light" class="w-5 h-5"></ph-icon>
-            </a>
-            <a href="mailto:mragank.studio.co@gmail.com" class="text-gray-500 hover:text-primary transition-colors">
-                <ph-icon name="envelope-simple" weight="light" class="w-5 h-5"></ph-icon>
-            </a>
-        </div>
     </footer>
-
 
     <script>
         const mobileMenu = document.getElementById('mobile-menu');
@@ -628,18 +568,22 @@
             setTimeout(() => {
                 preloader.style.display = 'none';
             }, 1300);
+
+            // ADJUST COLOR GRADING HERO VIDEO SPEED TO 0.3x
+            const heroVideo = document.getElementById('hero-video');
+            if (heroVideo) {
+                heroVideo.playbackRate = 0.3;
+            }
         });
 
-        document.querySelectorAll('.portfolio-item-container video, #long-form video, #home video').forEach(video => {
+        document.querySelectorAll('video').forEach(video => {
             video.onerror = function() {
                 const container = video.closest('.portfolio-item-container') || video.closest('.glass-card') || video.closest('.relative');
                 if (container) {
                     video.style.display = 'none';
-                    const errorOverlay = container.querySelector('.portfolio-overlay[style*="display: none"]') || container.querySelector('div[style*="display: none"]');
-                    
+                    const errorOverlay = container.querySelector('div[style*="display: none"]');
                     if (errorOverlay) {
                         errorOverlay.style.display = 'flex';
-                        errorOverlay.style.opacity = '1';
                     }
                 }
             };
