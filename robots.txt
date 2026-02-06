@@ -1,0 +1,6 @@
+# Professional robots.txt for The Frame | Mragank Gautam
+User-agent: *
+Allow: /
+
+# Help Google find your site structure
+Sitemap: https://mragankportfolio.vercel.app/sitemap.xml
