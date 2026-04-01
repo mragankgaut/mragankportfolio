@@ -340,7 +340,7 @@
         <section id="long-form" class="py-24 px-4 border-t border-gray-900">
             <div class="max-w-6xl mx-auto">
                 <h2 class="text-3xl sm:text-4xl md:text-5xl font-black luxury-heading mb-12 fade-in-up">Long Form <span style="color:#FF6B00">&amp; Commercials.</span></h2>
-                <div class="flex flex-col space-y-12">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div class="glass-card p-2 sm:p-4 rounded-2xl fade-in-up">
                         <div class="relative w-full aspect-video rounded-xl overflow-hidden bg-black">
                             <video class="w-full h-full object-cover" autoplay muted loop playsinline src="podcas_edit_video/Editing_Skool.mp4"></video>
@@ -373,6 +373,47 @@
             </div>
         </section>
 
+        <!-- Book a Call -->
+        <section id="book-a-call" class="py-24 px-4 border-t border-gray-900">
+            <div class="max-w-4xl mx-auto text-center">
+                <p class="text-sm uppercase tracking-widest mb-4 fade-in-up" style="color:#FF6B00;">Let's Talk</p>
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-black luxury-heading mb-6 text-white fade-in-up" style="transition-delay:0.05s;">Book a <span style="color:#FF6B00;">Call With Me</span></h2>
+                <p class="text-base sm:text-lg text-gray-400 font-light max-w-xl mx-auto mb-12 fade-in-up" style="transition-delay:0.1s;">Have a project in mind? Let's jump on a quick call and talk about how we can bring your vision to life.</p>
+
+                <div class="glass-card rounded-2xl p-8 sm:p-12 fade-in-up" style="transition-delay:0.15s;">
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 mb-10">
+                        <div class="flex flex-col items-center gap-3">
+                            <div class="w-12 h-12 rounded-full flex items-center justify-center" style="background:rgba(255,107,0,0.1); border:1px solid rgba(255,107,0,0.2);">
+                                <ph-icon name="clock" weight="light" style="color:#FF6B00; font-size:1.4rem;"></ph-icon>
+                            </div>
+                            <p class="text-white font-semibold">30 Minutes</p>
+                            <p class="text-gray-500 text-sm">Quick & focused session</p>
+                        </div>
+                        <div class="flex flex-col items-center gap-3">
+                            <div class="w-12 h-12 rounded-full flex items-center justify-center" style="background:rgba(255,107,0,0.1); border:1px solid rgba(255,107,0,0.2);">
+                                <ph-icon name="video-camera" weight="light" style="color:#FF6B00; font-size:1.4rem;"></ph-icon>
+                            </div>
+                            <p class="text-white font-semibold">Video Call</p>
+                            <p class="text-gray-500 text-sm">Face-to-face conversation</p>
+                        </div>
+                        <div class="flex flex-col items-center gap-3">
+                            <div class="w-12 h-12 rounded-full flex items-center justify-center" style="background:rgba(255,107,0,0.1); border:1px solid rgba(255,107,0,0.2);">
+                                <ph-icon name="calendar-blank" weight="light" style="color:#FF6B00; font-size:1.4rem;"></ph-icon>
+                            </div>
+                            <p class="text-white font-semibold">Flexible Slots</p>
+                            <p class="text-gray-500 text-sm">Pick what works for you</p>
+                        </div>
+                    </div>
+
+                    <a href="https://calendly.com/mragank-studio-co/new-meeting" target="_blank" class="glow-btn inline-flex items-center gap-3 px-10 py-4 rounded-full text-base sm:text-lg uppercase tracking-wider">
+                        <ph-icon name="calendar-check" weight="bold"></ph-icon>
+                        Schedule Your Call
+                    </a>
+                    <p class="text-gray-600 text-sm mt-6">Free · No commitment · Just a conversation</p>
+                </div>
+            </div>
+        </section>
+
         <!-- Contact -->
         <section id="contact" class="py-24 px-4 border-t border-b" style="border-color: rgba(255,107,0,0.2); background: rgba(255,107,0,0.05);">
             <div class="max-w-4xl mx-auto text-center">
@@ -397,7 +438,7 @@
                         <a href="https://www.linkedin.com/in/mragank-gautam-512895339" target="_blank" class="inline-block w-full sm:w-auto px-8 sm:px-10 py-3 rounded-full text-base sm:text-lg uppercase tracking-wider text-white text-center font-semibold" style="background:#374151;">Connect on LinkedIn</a>
                     </div>
                     <p class="text-gray-400 font-medium tracking-wide">
-                        Direct Email: <a href="#" onclick="window.location.href='mai'+'lto:mragank.studio.co@gmail.com'; return false;" class="hover:underline" style="color:#FF6B00">mragank.studio.co@gmail.com</a>
+                        Direct Email: <a href="#" onclick="window.location.href='mai'+'lto:mragank.studio.co@gmail.com'; return false;" class="hover:underline" style="color:#FF6B00"><span class="__cf_email__" data-cfemail="137e617274727d783d606766777a7c3d707c53747e727a7f3d707c7e">mragank.studio.co@gmail.com</span></a>
                     </p>
                 </div>
             </div>
@@ -409,7 +450,7 @@
         <p class="text-xs text-gray-600 font-light">&copy; 2026 The Frame. Visual Storytelling by Mragank Gautam. All Rights Reserved.</p>
     </footer>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         const mobileMenu = document.getElementById('mobile-menu');
         const openMenuBtn = document.getElementById('open-menu');
         const closeMenuBtn = document.getElementById('close-menu');
@@ -427,13 +468,15 @@
 
         document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
 
+        const heroVideo = document.getElementById('hero-video');
+        if (heroVideo) {
+            heroVideo.playbackRate = 0.5;
+        }
+
         window.addEventListener('load', () => {
             setTimeout(() => preloader.classList.add('fade-out'), 500);
-            setTimeout(() => preloader.style.display = 'none', 1300);
-            const heroVideo = document.getElementById('hero-video');
-            if (heroVideo) heroVideo.playbackRate = 0.3;
+            setTimeout(() => preloader.style.display = 'none', 1400);
         });
     </script>
-
 </body>
 </html>
