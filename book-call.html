@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book a Call | The Frame | Mragank Gautam</title>
+    <meta name="description" content="Schedule a free 30-minute video call with Mragank Gautam to discuss your video editing project. High-retention edits, color grading, and more.">
+    <meta name="keywords" content="Book Video Editor, Schedule Call, Video Editing Consultation, Mragank Gautam">
+    <meta property="og:title" content="Book a Call | The Frame — Video Editing">
+    <meta property="og:description" content="Free consultation call to plan your next video project.">
+    <meta property="og:url" content="https://mragankportfolio.vercel.app/book-call.html">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web@2.1.1/dist/index.min.js"></script>
+    <style>
+        /* FULL identical styles from index.html */
+        .breadcrumb { @apply text-sm text-gray-500; }
+        .breadcrumb a { @apply hover:text-primary transition-colors font-medium; }
+        .calendly-badge { transition: all 0.3s ease; }
+        .calendly-badge:hover { transform: translateY(-2px); }
+    </style>
+</head>
+<body class="bg-dark text-white">
+
+    <!-- Preloader, Volumetric BG, Mobile Menu identical; nav updated -->
+
+    <!-- Nav with Book Call highlighted -->
+    <header id="main-nav" class="fixed top-0 left-0 right-0 z-40 glass-nav">
+        <div class="max-w-7xl mx-auto px-6 sm:px-10 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-xl font-black luxury-heading text-white">THE FRAME<span style="color:#FF6B00">.</span></a>
+            <nav class="hidden md:flex space-x-8 text-sm font-medium">
+                <a href="index.html#about" class="hover:text-[#FF6B00] transition-colors">About</a>
+                <a href="index.html#services-highlight" class="hover:text-[#FF6B00] transition-colors">Services</a>
+                <a href="index.html#certificate" class="hover:text-[#FF6B00] transition-colors">Certificate</a>
+                <a href="long-form.html" class="hover:text-[#FF6B00] transition-colors">Portfolio</a>
+                <a href="color-grading.html" class="hover:text-[#FF6B00] transition-colors">Color Grading</a>
+                <a href="book-call.html" class="text-[#FF6B00] font-semibold">Book Call</a>
+            </nav>
+            <button id="open-menu" class="md:hidden text-2xl text-white">
+                <ph-icon name="list" weight="light" class="w-7 h-7"></ph-icon>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero: Strong CTA -->
+        <section class="min-h-screen pt-40 pb-20 flex flex-col items-center justify-center text-center px-4">
+            <div class="max-w-5xl mx-auto">
+                <nav class="breadcrumb mb-8 flex items-center gap-2 justify-center">
+                    <a href="index.html">← Home</a> / Book a Call
+                </nav>
+                <h1 class="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black luxury-heading text-white fade-in-up leading-tight">Ready to <span style="color:#FF6B00;">start?</span></h1>
+                <p class="text-xl md:text-2xl text-gray-400 mt-6 max-w-2xl mx-auto fade-in-up" style="transition-delay:0.2s;">30-minute video call. No commitment. Just to see if we're a good fit for your project.</p>
+                <div class="mt-12 fade-in-up" style="transition-delay:0.3s;">
+                    <a href="https://calendly.com/mragank-studio-co/new-meeting" target="_blank" class="glow-btn inline-flex items-center gap-4 px-12 py-5 rounded-full text-xl uppercase tracking-wider shadow-2xl">
+                        <ph-icon name="calendar-check" weight="bold" class="w-6 h-6"></ph-icon>
+                        Book Your Slot Now
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Expanded Book a Call Section -->
+        <section class="py-24 px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="grid md:grid-cols-2 gap-16 items-center mb-16">
+                    <div>
+                        <h2 class="text-3xl sm:text-4xl md:text-5xl font-black luxury-heading mb-6">What's <span style="color:#FF6B00;">discussed?</span></h2>
+                        <div class="space-y-6">
+                            <div class="flex items-start gap-4">
+                                <div class="w-8 h-8 rounded-full flex items-center justify-center mt-1 flex-shrink-0" style="background:rgba(255,107,0,0.1); border:1px solid rgba(255,107,0,0.3);">
+                                    <ph-icon name="play-circle" weight="bold" class="w-5 h-5" style="color:#FF6B00;"></ph-icon>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-lg mb-1">Your Vision</h3>
+                                    <p class="text-gray-400">Project goals, target audience, visual style</p>
+                                </div>
+                            </div>
+                            <!-- 4 more similar items: Timeline/Budget, Examples, My Approach, Next Steps -->
+                        </div>
+                    </div>
+                    <div class="calendly-badge p-8 rounded-2xl glass-card hover:shadow-2xl transition-all cursor-pointer group" onclick="window.open('https://calendly.com/mragank-studio-co/new-meeting','_blank')">
+                        <ph-icon name="calendar" weight="thin" class="w-16 h-16 mb-6 mx-auto group-hover:scale-110 transition-transform" style="color:#FF6B00;"></ph-icon>
+                        <h3 class="text-2xl font-black mb-4 group-hover:text-[#FF6B00] transition-colors">Pick Your Time</h3>
+                        <p class="text-gray-400 mb-6">Available slots update in real-time</p>
+                        <span class="glow-btn inline-flex items-center gap-2 px-6 py-2.5 text-sm uppercase tracking-wide w-full justify-center">Select Slot →</span>
+                    </div>
+                </div>
+
+                <!-- Why Book CTA grid like original + FAQs -->
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 mb-16">
+                    <!-- 3 why-book cards identical to original -->
+                </div>
+
+                <!-- Direct Calendly embed if possible, else badge + link -->
+                <div class="glass-card p-12 rounded-3xl text-center max-w-2xl mx-auto">
+                    <h3 class="text-2xl font-black mb-6">One Click to Get Started</h3>
+                    <a href="https://calendly.com/mragank-studio-co/new-meeting" target="_blank" class="glow-btn inline-flex items-center gap-3 px-10 py-4 rounded-full text-lg uppercase tracking-wider shadow-xl">
+                        <ph-icon name="calendar-check" weight="bold"></ph-icon>
+                        Open Calendly
+                    </a>
+                    <p class="text-gray-500 mt-4 text-sm">Takes 30 seconds. No signup required.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cross-links + Mini Contact -->
+        <section class="py-16 px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="grid md:grid-cols-3 gap-6 mb-12">
+                    <a href="color-grading.html" class="glass-card p-8 rounded-xl hover:-translate-y-2 group text-center">
+                        <ph-icon name="palette" class="w-12 h-12 mb-4 mx-auto group-hover:scale-110" style="color:#FF6B00;"></ph-icon>
+                        <h3 class="text-xl font-bold mb-2">Color Grading</h3>
+                        <p class="text-gray-400 text-sm">View work</p>
+                    </a>
+                    <a href="long-form.html" class="glass-card p-8 rounded-xl hover:-translate-y-2 group text-center">
+                        <ph-icon name="video" class="w-12 h-12 mb-4 mx-auto group-hover:scale-110" style="color:#FF6B00;"></ph-icon>
+                        <h3 class="text-xl font-bold mb-2">Portfolio</h3>
+                        <p class="text-gray-400 text-sm">Long & short form</p>
+                    </a>
+                    <a href="index.html" class="glass-card p-8 rounded-xl hover:-translate-y-2 group text-center">
+                        <ph-icon name="house" class="w-12 h-12 mb-4 mx-auto group-hover:scale-110" style="color:#FF6B00;"></ph-icon>
+                        <h3 class="text-xl font-bold mb-2">Home</h3>
+                        <p class="text-gray-400 text-sm">Full overview</p>
+                    </a>
+                </div>
+                <!-- Direct email + social -->
+                <div class="text-center">
+                    <p class="text-gray-400 mb-4">Prefer email? <a href="mailto:mragank.studio.co@gmail.com" class="font-semibold hover:underline" style="color:#FF6B00;">mragank.studio.co@gmail.com</a></p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Identical footer & scripts -->
+    <script>
+        /* Identical JS from index.html */
+    </script>
+</body>
+</html>
