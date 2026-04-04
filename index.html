@@ -164,7 +164,7 @@
     </div>
 
     <!-- Mobile Menu -->
-    <div id="mobile-menu" class="menu-tray fixed top-0 right-0 w-full h-full bg-[#0A0A0A] z-50 p-8">
+        <div id="mobile-menu" class="menu-tray fixed top-0 right-0 w-full h-full bg-[#0A0A0A] z-50 p-8">
         <button id="close-menu" class="absolute top-6 right-6 text-3xl text-gray-400 hover:text-white transition-colors">
             <ph-icon name="x" weight="light" class="w-8 h-8"></ph-icon>
         </button>
@@ -173,9 +173,9 @@
             <a href="#about" class="text-4xl font-black text-gray-200 hover:text-[#FF6B00] transition-colors" onclick="toggleMenu()">About</a>
             <a href="#services-highlight" class="text-4xl font-black text-gray-200 hover:text-[#FF6B00] transition-colors" onclick="toggleMenu()">Services</a>
             <a href="#certificate" class="text-4xl font-black text-gray-200 hover:text-[#FF6B00] transition-colors" onclick="toggleMenu()">Certificate</a>
-            <a href="#portfolio" class="text-4xl font-black text-gray-200 hover:text-[#FF6B00] transition-colors" onclick="toggleMenu()">Portfolio</a>
-            <a href="#long-form" class="text-4xl font-black text-gray-200 hover:text-[#FF6B00] transition-colors" onclick="toggleMenu()">Long Form</a>
-            <a href="#contact" class="text-4xl font-black text-gray-200 transition-colors" onclick="toggleMenu()">Contact</a>
+            <a href="long-form.html" class="text-4xl font-black text-gray-200 hover:text-[#FF6B00] transition-colors" onclick="toggleMenu()">Portfolio</a>
+            <a href="color-grading.html" class="text-4xl font-black text-gray-200 hover:text-[#FF6B00] transition-colors" onclick="toggleMenu()">Color Grading</a>
+            <a href="book-call.html" class="text-4xl font-black text-gray-200 hover:text-[#FF6B00] transition-colors" onclick="toggleMenu()">Book Call</a>
         </div>
     </div>
 
@@ -185,13 +185,13 @@
             <a href="#home" class="text-xl font-black luxury-heading text-white">
                 THE FRAME<span style="color:#FF6B00">.</span>
             </a>
-            <nav class="hidden md:flex space-x-8 text-sm font-medium">
+<nav class="hidden md:flex space-x-8 text-sm font-medium">
                 <a href="#about" class="hover:text-[#FF6B00] transition-colors">About</a>
                 <a href="#services-highlight" class="hover:text-[#FF6B00] transition-colors">Services</a>
                 <a href="#certificate" class="hover:text-[#FF6B00] transition-colors">Certificate</a>
-                <a href="#portfolio" class="hover:text-[#FF6B00] transition-colors">Portfolio</a>
-                <a href="#long-form" class="hover:text-[#FF6B00] transition-colors">Long Form</a>
-                <a href="#contact" class="hover:text-[#FF6B00] transition-colors">Contact</a>
+                <a href="long-form.html" class="text-[#FF6B00] font-semibold">Portfolio</a>
+                <a href="color-grading.html" class="hover:text-[#FF6B00] transition-colors">Color Grading</a>
+                <a href="book-call.html" class="hover:text-[#FF6B00] transition-colors">Book Call</a>
             </nav>
             <button id="open-menu" class="md:hidden text-2xl text-white">
                 <ph-icon name="list" weight="light" class="w-7 h-7"></ph-icon>
@@ -205,31 +205,6 @@
         <section id="home" class="min-h-screen pt-40 pb-20 flex flex-col items-center justify-center text-center px-4">
             <div class="max-w-5xl mx-auto">
                 <h1 class="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black luxury-heading text-white fade-in-up leading-tight">VISUAL STORYTELLING. REDEFINED.</h1>
-            </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-24 w-full max-w-6xl mx-auto">
-                <div class="glass-card p-4 fade-in-up" style="transition-delay: 0.6s;">
-                    <div class="relative w-full aspect-video rounded-lg overflow-hidden border border-[#1f1f1f] shadow-lg bg-black">
-                        <video id="hero-video" class="w-full h-full object-cover" autoplay muted loop playsinline src="podcas_edit_video/Color_Grading.mp4"></video>
-                    </div>
-                    <div class="mt-4 text-left">
-                        <h3 class="text-lg font-bold text-white uppercase tracking-tight">Color Grading</h3>
-                        <p class="text-xs text-gray-400 font-light leading-relaxed mt-2">
-                            Cinematic color correction and grading using DaVinci Resolve — transforming flat footage into visually striking, mood-driven stories.
-                        </p>
-                    </div>
-                </div>
-                <div class="glass-card p-4 fade-in-up" style="transition-delay: 0.7s;">
-                    <div class="relative w-full aspect-video rounded-lg overflow-hidden border border-[#1f1f1f] shadow-lg bg-black">
-                        <video class="w-full h-full object-cover" autoplay muted loop playsinline src="podcas_edit_video/Before_and_after.mp4"></video>
-                    </div>
-                    <div class="mt-4 text-left">
-                        <h3 class="text-lg font-bold text-white uppercase tracking-tight">The Art of Storytelling</h3>
-                        <p class="text-xs text-gray-400 font-light leading-relaxed mt-2">
-                            Visual impact isn't just aesthetic; it's narrative. I transform raw footage into cinematic visuals using advanced post-production techniques.
-                        </p>
-                    </div>
-                </div>
             </div>
         </section>
 
@@ -262,6 +237,23 @@
                             Let's Work →
                         </a>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Color Grading Teaser -->
+        <section id="color-grading" class="py-24 px-4 border-t border-gray-900">
+            <div class="max-w-6xl mx-auto text-center">
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-black luxury-heading mb-12 fade-in-up">Color Grading <span style="color:#FF6B00">Mastery.</span></h2>
+                <p class="text-lg text-gray-400 font-light leading-relaxed max-w-3xl mx-auto mb-12 fade-in-up">Transform your footage with cinematic color correction using DaVinci Resolve.</p>
+                <div class="glass-card p-6 sm:p-8 rounded-2xl max-w-2xl mx-auto fade-in-up">
+                    <div class="relative w-full aspect-video rounded-xl overflow-hidden border border-[#1f1f1f] shadow-lg bg-black mb-6">
+                        <video class="w-full h-full object-cover" autoplay muted loop playsinline src="podcas_edit_video/Color_Grading.mp4"></video>
+                    </div>
+                    <a href="color-grading.html" class="glow-btn inline-flex items-center gap-3 px-8 py-3 rounded-full uppercase tracking-wider text-sm">
+                        <ph-icon name="arrow-right" weight="bold"></ph-icon>
+                        View Full Color Grading
+                    </a>
                 </div>
             </div>
         </section>
@@ -384,21 +376,32 @@
                     <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 mb-10">
                         <div class="flex flex-col items-center gap-3">
                             <div class="w-12 h-12 rounded-full flex items-center justify-center" style="background:rgba(255,107,0,0.1); border:1px solid rgba(255,107,0,0.2);">
-                                <ph-icon name="clock" weight="light" style="color:#FF6B00; font-size:1.4rem;"></ph-icon>
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FF6B00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <polyline points="12 6 12 12 16 14"></polyline>
+                                </svg>
                             </div>
                             <p class="text-white font-semibold">30 Minutes</p>
                             <p class="text-gray-500 text-sm">Quick & focused session</p>
                         </div>
                         <div class="flex flex-col items-center gap-3">
                             <div class="w-12 h-12 rounded-full flex items-center justify-center" style="background:rgba(255,107,0,0.1); border:1px solid rgba(255,107,0,0.2);">
-                                <ph-icon name="video-camera" weight="light" style="color:#FF6B00; font-size:1.4rem;"></ph-icon>
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FF6B00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polygon points="23 7 16 12 23 17 23 7"></polygon>
+                                    <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
+                                </svg>
                             </div>
                             <p class="text-white font-semibold">Video Call</p>
                             <p class="text-gray-500 text-sm">Face-to-face conversation</p>
                         </div>
                         <div class="flex flex-col items-center gap-3">
                             <div class="w-12 h-12 rounded-full flex items-center justify-center" style="background:rgba(255,107,0,0.1); border:1px solid rgba(255,107,0,0.2);">
-                                <ph-icon name="calendar-blank" weight="light" style="color:#FF6B00; font-size:1.4rem;"></ph-icon>
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FF6B00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                                </svg>
                             </div>
                             <p class="text-white font-semibold">Flexible Slots</p>
                             <p class="text-gray-500 text-sm">Pick what works for you</p>
@@ -476,6 +479,11 @@
         window.addEventListener('load', () => {
             setTimeout(() => preloader.classList.add('fade-out'), 500);
             setTimeout(() => preloader.style.display = 'none', 1400);
+            
+            // Initialize Phosphor Icons
+            if (typeof PhosphorIcons !== 'undefined') {
+                PhosphorIcons.replace();
+            }
         });
     </script>
 </body>
