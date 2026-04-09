@@ -340,10 +340,17 @@
                         </div>
                     </div>
                     <div class="portfolio-item-container fade-in-up" style="transition-delay: 0.2s;">
-                        <video class="w-full h-full object-cover" autoplay muted loop playsinline src="podcas_edit_video/Ashil_khan.mp4"></video>
+                        <video class="w-full h-full object-cover" autoplay muted loop playsinline src="podcas_edit_video/edit.mp4"></video>
                         <div class="portfolio-overlay">
                             <ph-icon name="video-camera" weight="light" class="w-8 h-8 mb-2" style="color:#FF6B00"></ph-icon>
-                            <p class="text-lg font-bold">Ashil Khan Edit</p>
+                            <p class="text-lg font-bold">Edit Video</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-item-container fade-in-up" style="transition-delay: 0.3s;">
+                        <video class="w-full h-full object-cover" autoplay muted loop playsinline src="podcas_edit_video/joseph.mp4"></video>
+                        <div class="portfolio-overlay">
+                            <ph-icon name="video-camera" weight="light" class="w-8 h-8 mb-2" style="color:#FF6B00"></ph-icon>
+                            <p class="text-lg font-bold">Joseph Edit</p>
                         </div>
                     </div>
                 </div>
@@ -500,12 +507,12 @@
 
         const showcaseVideo = document.getElementById('showcase-video');
         if (showcaseVideo) {
-            showcaseVideo.playbackRate = 0.5;
+            showcaseVideo.playbackRate = 1.0;
         }
 
         const colorGradingVideo = document.getElementById('color-grading-video');
         if (colorGradingVideo) {
-            colorGradingVideo.playbackRate = 0.5;
+            colorGradingVideo.playbackRate = 0.25;
         }
 
         window.addEventListener('load', () => {
